@@ -20,5 +20,12 @@
       %nav.footer{role: 'contentinfo'}
         .links
           .social
-            %li= link_to(image_tag('gatorace.png', alt: 'twitter'), 'http://gatorace.org/', target: '_blank')
-            %li= link_to(image_tag('facebook.png', alt: 'facebook'), 'https://www.facebook.com/GatorACE/?fref=ts', target: '_blank')
+            %li
+              = link_to 'https://uf-ace.slack.com', target: '_blank' do
+                = image_tag 'slack.png'
+            %li
+              = link_to 'https://www.facebook.com/GatorACE/?fref=ts', target: '_blank' do
+                %i.fa.fa-facebook-official
+            %li
+              = link_to 'http://gatorace.org/', target: '_blank' do
+                %i.fa.fa-globe

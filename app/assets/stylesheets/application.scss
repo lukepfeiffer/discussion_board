@@ -157,27 +157,51 @@
         margin: 0 1em;
         float: left;
         border-top: 1px solid $soft-gray;
-        border-bottom: 1px solid $soft-gray;
 
         li {
           list-style-type: none;
-          float: left;
+          float: right;
           font-size: 1.4em;
           padding-right: 0.7em;
 
           &:last-child {
-            padding-right: 0;
+            padding-left: 0;
           }
         }
 
-        img {
-          height: 1.6em;
-          opacity: 0.7;
-          padding: 1px;
+        img{
+          filter: grayscale(100%);
+          width: 3.8em;
+          position: relative;
+          top: -1.0em;
+          left: -0.8em;
 
-          &:focus, &:hover {
-            opacity: 1;
-            cursor: pointer;
+          &:hover{
+            filter: grayscale(0%);
+          }
+        }
+
+        i{
+          font-size: 2em;
+          color: $gator-blue;
+          filter: grayscale(80%);
+        }
+        .fa-globe{
+          &:hover{
+            filter: grayscale(0%);
+            color: $gator-blue;
+          }
+        }
+        .fa-slack{
+          &:hover{
+            filter: grayscale(20%);
+            color: #39AE85;
+          }
+        }
+        .fa-facebook-official{
+          &:hover{
+            filter: grayscale(0%);
+            color: #3b5998;
           }
         }
       }
