@@ -392,6 +392,22 @@ form.search-bar {
     }
   }
 
+  #sign_in{
+    @media only screen and (min-device-width: 769px) {
+      h1{
+        font-weight: 200;
+        font-size: 1.8em;
+      }
+      .sign_up{
+        text-align: left;
+        display: inline-block;
+      }
+      .sign_in{
+        display: inline-block;
+      }
+    }
+  }
+
   #about{
     margin-top: 0;
     padding-left: 1em;

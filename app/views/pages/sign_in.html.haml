@@ -1,0 +1,27 @@
+#sign_in
+
+  .sign_up
+    %h1 New user? Sign up
+    = form_for new_user do |f|
+      %fieldset
+        %dl
+          %dt= f.label :email
+          %dd= f.text_field :email
+          %dt= f.label :password
+          %dd= f.password_field :password
+          %dt= f.label :password_confirmation
+          %dd= f.password_field :password_confirmation
+      %fieldset.actions
+        = f.submit "Sign In"
+
+  .sign_in
+    = form_tag sign_in_path do
+      %h1 Sign In
+      %fieldset
+        %dl
+          %dt= label_tag :email
+          %dd= text_field_tag :email, nil
+          %dt= label_tag :password
+          %dd= password_field_tag :password, nil
+      %fieldset.actions
+        = submit_tag "Sign In"
