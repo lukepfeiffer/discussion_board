@@ -13,9 +13,10 @@
         %i.fa.fa-play
     .description
       = link_to @string.truncate(300), root_path
-    .actions
-      = link_to 'Edit', root_path, class: 'edit'
-      = link_to 'Delete', root_path, class: 'delete'
+    - if current_user.present? && current_user.admin?
+      .actions
+        = link_to 'Edit', root_path, class: 'edit'
+        = link_to 'Delete', root_path, class: 'delete'
   .post
     = link_to root_path do
       %h1.title Linked Lists
@@ -25,6 +26,7 @@
         %i.fa.fa-play
     .description
       = link_to @string.truncate(300), root_path
-    .actions
-      = link_to 'Edit', root_path, class: 'edit'
-      = link_to 'Delete', root_path, class: 'delete'
+    - if current_user.present? && current_user.admin?
+      .actions
+        = link_to 'Edit', root_path, class: 'edit'
+        = link_to 'Delete', root_path, class: 'delete'
