@@ -18,14 +18,14 @@
         - else
           = link_to 'Sign In', sign_in_path
     - if current_user.present?
-      .user_info
+      .user-info
         Signed in as
         = current_user.username
       - if current_user.is_admin?
         .admin-actions
-          .add= link_to 'Create post'
-          .view= link_to 'Posts'
-          .show= link_to 'Profile'
+          = link_to 'Create Post', root_path, class: 'create'
+          = link_to 'View Posts', root_path, class: 'view'
+          = link_to 'View Profile', root_path, class: 'profile'
 
     .page-content
       = yield
