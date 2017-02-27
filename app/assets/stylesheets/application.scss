@@ -28,6 +28,10 @@ form.search-bar {
   position: relative;
   margin-top: 1em;
 
+  input[type=search]{
+    letter-spacing: 1.5px;
+  }
+
   @media only screen and (min-device-width: 769px) {
     input[type=search] {
       appearance: none;
@@ -421,6 +425,31 @@ form.search-bar {
       }
       .sign_in{
         text-align: left;
+      }
+    }
+  }
+
+  #show_post{
+    text-align: left;
+    h1{
+      text-align: center;
+    }
+    .publisher{
+      color: $soft-gray;
+
+      .author{
+        color: $gator-blue;
+      }
+
+      .date{
+        font-style: italic;
+      }
+
+    }
+    .video{
+      width: 100%;
+      img{
+        width: 100%;
       }
     }
   }

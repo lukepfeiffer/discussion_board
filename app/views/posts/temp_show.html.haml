@@ -1,0 +1,20 @@
+#show_post
+  %h1 Some arbitary post
+  .post-content
+    .video= image_tag 'placeholder.jpg'
+    .content
+      %p.publisher
+        %span.author Dakota
+        |
+        %span.date #{Date.today}
+      %p.descriptin= @string
+
+  .comment-section
+    %p.username ChadCoolGuy
+    .comment-body
+      %p This is some cool stuff!
+      .reply
+        %p.username LukeSwagGuy
+        .comment-body
+          %p Agreed, really digging this!
+
