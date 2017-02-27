@@ -393,17 +393,34 @@ form.search-bar {
   }
 
   #sign_in{
+    fieldset{
+      border: none;
+    }
     @media only screen and (min-device-width: 769px) {
       h1{
         font-weight: 200;
         font-size: 1.8em;
       }
+      dd{
+        margin: 0;
+      }
+      input[type=submit]{
+        width: 12.5%;
+        padding: 0.5em;
+        font-size: 16px;
+      }
+      input[type=text], input[type=password]{
+        width: 50%;
+        border-radius: 5px;
+        padding: 0.8em;
+        font-size: 16px;
+        letter-spacing: 1.5px;
+      }
       .sign_up{
         text-align: left;
-        display: inline-block;
       }
       .sign_in{
-        display: inline-block;
+        text-align: left;
       }
     }
   }
