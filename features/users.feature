@@ -20,3 +20,9 @@ Feature: User
     Then I should be on the "/" page
     And I should see "Signed in as new@user.com"
   Scenario: User Signs out
+    Given the following user:
+      | email    | email@example.com |
+      | password | password          |
+    And I sign in as a user
+    When I follow "Sign Out"
+    Then I should see "Sign In"
