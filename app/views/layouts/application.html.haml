@@ -21,6 +21,11 @@
       .user_info
         Signed in as
         = current_user.username
+      - if current_user.is_admin?
+        .admin-actions
+          .add= link_to 'Create post'
+          .view= link_to 'Posts'
+          .show= link_to 'Profile'
 
     .page-content
       = yield

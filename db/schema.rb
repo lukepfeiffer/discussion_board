@@ -31,9 +31,10 @@ ActiveRecord::Schema.define(version: 20170227182625) do
   add_index "authem_sessions", ["expires_at", "token"], name: "index_authem_sessions_on_expires_at_and_token", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                           null: false
-    t.string   "password_digest",                 null: false
-    t.string   "password_reset_token", limit: 60, null: false
+    t.boolean  "is_admin",                        default: false
+    t.string   "email",                                           null: false
+    t.string   "password_digest",                                 null: false
+    t.string   "password_reset_token", limit: 60,                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
