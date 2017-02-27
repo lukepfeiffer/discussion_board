@@ -1,20 +1,19 @@
 class UsersController < ApplicationController
- def create
-    user = User.find_by(email: params[:email].downcase)
-    if user && user.authenticate(params[:password])
+  def create
+    user = User.new(user_params)
+    if user.save
       sign_in(user)
-      redirect_back_or_to(root_path)
+      redirect_to :root
     else
-      flash.now.alert = "Your email and password do not match"
-      render :new
+       render sign_in_path
     end
   end
 
- def user_params
-   params.require(:user).permit(
-     :email,
-     :password,
-     :password_confirmation
-   )
- end
+  def user_params
+    params.require(:user).permit(
+      :email,
+      :password,
+      :password_confirmation
+    )
+  end
 end
