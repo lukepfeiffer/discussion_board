@@ -444,12 +444,34 @@ form.search-bar {
       .date{
         font-style: italic;
       }
-
     }
+
     .video{
       width: 100%;
       img{
         width: 100%;
+      }
+    }
+
+    .comments-container{
+      margin-bottom: 10px;
+      .comment{
+        margin: 1em 0;
+        padding-bottom: 1em;
+        border-bottom: 1px solid darken(#fff, 10%);
+
+        .username{
+          display: inline;
+          color: $gator-blue;
+        }
+
+        a p{
+          margin-top: 10px;
+        }
+
+        .content{
+          display: inline;
+        }
       }
     }
   }

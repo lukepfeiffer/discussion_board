@@ -6,15 +6,21 @@
       %p.publisher
         %span.author Dakota
         |
-        %span.date #{Date.today}
+        %span.date #{Date.today.strftime("%B %-d, %Y" )}
       %p.descriptin= @string
 
-  .comment-section
-    %p.username ChadCoolGuy
-    .comment-body
-      %p This is some cool stuff!
-      .reply
-        %p.username LukeSwagGuy
-        .comment-body
-          %p Agreed, really digging this!
-
+  %h2 Comments
+  .comments-container
+    .comment
+      %p.username ChadCoolGuy:
+      %p.content This is some cool stuff!
+      %a
+        %p View replies (6)
+    .comment
+      %p.username LukePfeiffer:
+      %p.content Nulla varius pharetra metus, et mollis diam tincidunt sed. Nulla ac ante nunc. Cras eleifend risus non eros molestie euismod. Aenean non sem orci. Aenean varius vitae risus molestie interdum. Nam ut sodales ipsum. Nulla vulputate, tortor sed convallis congue, purus libero dignissim nisi, non consectetur nulla felis non lacus.
+      %a
+        %p View replies (2)
+    .comment
+      %p.username ChadCoolGuy:
+      %p.content This is some cool stuff!

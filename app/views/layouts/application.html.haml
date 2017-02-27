@@ -20,7 +20,7 @@
     - if current_user.present?
       .user_info
         Signed in as
-        = current_user.email
+        = current_user.username
 
     .page-content
       = yield
