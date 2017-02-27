@@ -23,7 +23,7 @@
         = current_user.username
       - if current_user.is_admin?
         .admin-actions
-          = link_to 'Create Post', root_path, class: 'create'
+          = link_to 'Create Post', new_post_path, class: 'create'
           = link_to 'View Posts', root_path, class: 'view'
           = link_to 'View Profile', root_path, class: 'profile'
 
