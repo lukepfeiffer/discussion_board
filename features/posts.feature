@@ -14,3 +14,18 @@ Feature: Post
     Then I should see "title"
     And I should see "www.google.com"
     And I should see "Some description"
+  Scenario: Admin deletes post
+    Given the following user:
+      | username | username          |
+      | email    | email@example.com |
+      | password | password          |
+      | is_admin | true              |
+    And the following post:
+      | title       | title          |
+      | description | description    |
+      | embed_url   | www.google.com |
+    And I sign in as a user
+    When I follow "Delete"
+    Then I should not see "title"
+    And I should not see "description"
+    And I should not see "www.google.com"

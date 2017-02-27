@@ -1,10 +1,10 @@
 #show_post
   %h1= post.title
   .post-content
-    .video= post.embed_url
+    .video= raw post.embed_url.html_safe
     .content
       %p.publisher
         %span.author= post.user.username
         |
-        %span.date= post.publish_date
+        %span.date= post.publish_date.strftime("%B %-d, %Y" )
       %p.description= post.description
