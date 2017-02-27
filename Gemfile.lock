@@ -94,8 +94,6 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     fabrication (2.16.0)
-    filepicker-rails (2.1.0)
-      rails (>= 3.2)
     formal (1.0.1)
     gherkin (4.0.0)
     globalid (0.3.7)
@@ -235,7 +233,6 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   fabrication
-  filepicker-rails
   formal
   google-webfonts-rails
   haml-rails
