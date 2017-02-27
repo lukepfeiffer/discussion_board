@@ -6,13 +6,13 @@
       %fieldset
         %dl
           %dt= f.label :email
-          %dd= f.text_field :email
+          %dd= f.text_field :email, id: 'sign_up_email'
           %dt= f.label :password
-          %dd= f.password_field :password
+          %dd= f.password_field :password, id: 'sign_up_password'
           %dt= f.label :password_confirmation
-          %dd= f.password_field :password_confirmation
+          %dd= f.password_field :password_confirmation, id: 'sign_up_confirmation'
       %fieldset.actions
-        = f.submit "Sign In"
+        = f.submit "Sign Up"
 
   .sign_in
     = form_tag sign_in_path do

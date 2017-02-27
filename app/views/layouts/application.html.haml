@@ -17,6 +17,10 @@
           = link_to 'Sign Out', sign_out_path, method: :delete
         - else
           = link_to 'Sign In', sign_in_path
+    - if current_user.present?
+      .user_info
+        Signed in as
+        = current_user.email
 
     .page-content
       = yield
