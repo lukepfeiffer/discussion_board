@@ -1,0 +1,19 @@
+.posts-container
+  .post
+    = link_to root_path do
+      %h1.title Abstract Binary Tree
+    .video
+      = link_to root_path do
+        = image_tag 'placeholder.jpg'
+        %i.fa.fa-play
+    .description
+      = link_to @string.truncate(300), root_path
+  .post
+    = link_to root_path do
+      %h1.title Linked Lists
+    .video
+      = link_to root_path do
+        = image_tag 'placeholder.jpg'
+        %i.fa.fa-play
+    .description
+      = link_to @string.truncate(300), root_path
