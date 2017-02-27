@@ -20,8 +20,8 @@
       %fieldset
         %dl
           %dt= label_tag :email
-          %dd= text_field_tag :email, nil
+          %dd= text_field_tag :email, nil, id: 'sign_in_email'
           %dt= label_tag :password
-          %dd= password_field_tag :password, nil
+          %dd= password_field_tag :password, nil, id: 'sign_in_password'
       %fieldset.actions
         = submit_tag "Sign In"

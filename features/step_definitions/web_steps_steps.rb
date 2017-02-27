@@ -1,7 +1,8 @@
 When /^I sign in as a user$/ do
-  visit root_path
-  fill_in 'email', with: 'email@example.com'
-  fill_in 'password', with: 'password'
+  # must have user in the database!!!
+  visit sign_in_path
+  fill_in 'sign_in_email', with: 'email@example.com'
+  fill_in 'sign_in_password', with: 'password'
   click_button 'Sign In'
 end
 
