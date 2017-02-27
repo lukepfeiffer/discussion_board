@@ -4,6 +4,7 @@ class CreatePost < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.integer :user_id
+      t.string :embed_url
       t.datetime :publish_date
       t.timestamps
     end

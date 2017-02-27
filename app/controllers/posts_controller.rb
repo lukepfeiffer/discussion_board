@@ -14,4 +14,23 @@ class PostsController < ApplicationController
 
   def new
   end
+
+  def create
+    post = Post.new(post_params)
+    post.user_id = current_user.id
+    if post.save
+      redirect_to post_path(post)
+    else
+      render :new
+    end
+  end
+
+  def post_params
+    params.require(:post).permit(
+      :title,
+      :embed_url,
+      :description,
+      :publish_date
+    )
+  end
 end

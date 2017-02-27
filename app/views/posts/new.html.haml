@@ -1,0 +1,15 @@
+%h1 Create Post
+.form
+  = form_for post do |f|
+    %fieldset
+      %dl
+        %dt= f.label :title
+        %dd= f.text_field :title
+        %dt= f.label :embedded_url
+        %dd= f.text_field :embed_url
+        %dt= f.label :publish_date
+        %dd= f.date_field :publish_date
+        %dt= f.label :description
+        %dd= f.text_area :description
+    %fieldset.actions
+      = f.submit 'Create Post'

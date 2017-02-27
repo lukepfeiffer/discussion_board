@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170227201747) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
+    t.string   "embed_url"
     t.datetime "publish_date"
     t.datetime "created_at"
     t.datetime "updated_at"
