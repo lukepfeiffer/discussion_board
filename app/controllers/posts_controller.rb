@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     Course.all
   end
   expose :posts do
-    Post.all
+    Post.all.paginate(page: params[:page], per_page: 10).order("publish_date DESC")
   end
 
   def index

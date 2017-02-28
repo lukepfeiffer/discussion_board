@@ -7,7 +7,7 @@
   - posts.each do |post|
     .post
       = link_to post_path(post.id) do
-        %h1.title Abstract Binary Tree
+        %h1.title= post.title
       .video
         = link_to post_path(post.id) do
           = image_tag 'placeholder.jpg'
@@ -18,3 +18,11 @@
         .actions
           = link_to 'Edit', edit_post_path(post.id), class: 'edit'
           = link_to 'Delete', post_path(post.id), method: :delete, class: 'delete'
+      .details
+        %p.italic
+          = post.user.username
+          |
+          = post.publish_date.strftime("%B %-d, %Y")
+        = link_to root_path do
+          %p.course= post.course.course_code
+  = will_paginate posts

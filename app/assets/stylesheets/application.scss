@@ -339,6 +339,12 @@ form.search-bar {
         border-bottom: 1px solid $soft-gray;
         padding: 0 0 1em 0;
 
+        .details{
+          p{
+            text-align: left;
+          }
+        }
+
         a{
           text-decoration: none;
         }
@@ -360,6 +366,24 @@ form.search-bar {
           }
         }
 
+        .details{
+          p{
+            text-align: right;
+          }
+          .course{
+            color: $gator-blue;
+            font-size: 24px;
+            margin: 0.25em 0;
+          }
+          .italic{
+            font-size: 20px;
+            font-style: italic;
+            color: $soft-gray;
+            font-weight: 200;
+            margin: 0;
+          }
+        }
+
         .description{
           margin-top: 1.0em;
           font-size: 1.3em;
@@ -378,9 +402,28 @@ form.search-bar {
       .post{
         border-bottom: 1px solid lighten(#ccc, 10%);
         padding-bottom: 2em;
+        padding-right: 1em;
 
         &:hover{
           background-color: darken(#fff, 1%);
+        }
+
+        .details{
+          p{
+            text-align: right;
+          }
+          .course{
+            color: $gator-blue;
+            font-size: 14px;
+            margin: 0 0 0.25em 0;
+          }
+          .italic{
+            font-size: 14px;
+            font-style: italic;
+            color: $soft-gray;
+            font-weight: 200;
+            margin: 0;
+          }
         }
 
         a{
@@ -395,7 +438,8 @@ form.search-bar {
 
         h1{
           color: $gator-blue;
-          padding: 1em 0;
+          margin: 0.5em 0 1em 2vw;
+          padding-top: 1em;
           text-align: left;
           font-weight: 200;
           font-size: 1.4em;
@@ -441,6 +485,7 @@ form.search-bar {
           display: inline-block;
           text-align: left;
           width: 60%;
+          min-width: 100px;
         }
       }
     }
