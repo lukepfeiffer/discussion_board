@@ -350,9 +350,11 @@ form.search-bar {
         }
 
         h1{
-          font-size: 3em;
-          text-decoration: none;
-          color: $gator-blue;
+          a{
+            font-size: 2em;
+            text-decoration: none;
+            color: $gator-blue;
+          }
         }
 
         i{
@@ -437,14 +439,17 @@ form.search-bar {
         }
 
         h1{
-          color: $gator-blue;
-          margin: 0.5em 0 1em 2vw;
-          padding-top: 1em;
           text-align: left;
-          font-weight: 200;
-          font-size: 1.4em;
-          &:hover{
-            text-decoration: underline;
+          margin: 0.5em 0 0.2em 2vw;
+          a{
+            color: $gator-blue;
+            padding-top: 1em;
+            text-align: left;
+            font-weight: 200;
+            font-size: 1.2em;
+            &:hover{
+              text-decoration: underline;
+            }
           }
         }
         .video{

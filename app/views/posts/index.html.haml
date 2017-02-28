@@ -6,8 +6,7 @@
 .posts-container
   - posts.each do |post|
     .post
-      = link_to post_path(post.id) do
-        %h1.title= post.title
+      %h1.title= link_to post.title, post_path(post.id)
       .video
         = link_to post_path(post.id) do
           = image_tag 'placeholder.jpg'

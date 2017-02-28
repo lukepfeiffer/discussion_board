@@ -9,6 +9,7 @@ Feature: User
     And I press "Sign Up"
     Then I should be on the "/" page
     And I should see "Signed in as username"
+
   Scenario: User Signs In
     Given 1 user
     And I am on the home page
@@ -18,6 +19,7 @@ Feature: User
     And I press "Sign In"
     Then I should be on the "/" page
     And I should see "Signed in as username"
+
   Scenario: User Signs out
     Given 1 user
     And I sign in as a user

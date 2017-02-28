@@ -1,7 +1,7 @@
 Feature: Post
   Scenario: Admin creates post
     Given 1 admin
-    And 1 Course
+    And 1 course
     And I sign in as an admin
     When I follow "Create Post"
     And I fill in "Title" with "title"
@@ -14,8 +14,8 @@ Feature: Post
 
   Scenario: Admin deletes post
     Given 1 admin
-    And 1 Course
-    And that course has 1 Post
+    And 1 course
+    And that course has 1 post
     And that post belongs to that user
     And I sign in as an admin
     When I follow "Delete"
