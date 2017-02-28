@@ -35,6 +35,8 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  private
+
   def authenticate_admin
     if current_user.nil? || !current_user.is_admin?
       redirect_to root_path
@@ -45,6 +47,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(
       :title,
       :embed_url,
+      :course_id,
       :description,
       :publish_date
     )
