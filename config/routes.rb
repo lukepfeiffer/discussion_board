@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :users
+  resources :courses
 
   get '/temp_show', to: 'posts#temp_show'
   get '/contact', to: 'pages#contact'

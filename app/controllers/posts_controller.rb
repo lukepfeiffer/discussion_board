@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_admin, only: [:new, :edit, :destroy]
   expose :post
+  expose :courses do
+    Course.all
+  end
   expose :posts do
     Post.all
   end
