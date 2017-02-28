@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_admin, only: [:new, :edit, :destroy]
   expose :post
+  expose :comment do
+    Comment.new
+  end
+  expose :comments do
+    Comment.all.order("created_at DESC")
+  end
   expose :courses do
     Course.all
   end

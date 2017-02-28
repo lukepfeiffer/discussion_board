@@ -21,7 +21,7 @@
       .details
         %p.italic
           = post.user.username
-          |
+          &bull;
           = post.publish_date.strftime("%B %-d, %Y")
         = link_to root_path do
           %p.course= post.course.course_code

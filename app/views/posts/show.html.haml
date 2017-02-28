@@ -5,7 +5,30 @@
     .content
       %p.publisher
         %span.author= post.user.username
-        |
+        &bull;
         %span.date= post.publish_date.strftime("%B %-d, %Y" )
       %p.course_code= post.course.course_code
       %p.description= post.description
+  %h2 Comments &bull; (55)
+  - if current_user.present?
+    .form
+      = form_for comment do |f|
+        %fieldset
+          %dl
+            = f.hidden_field :post_id, value: post.id
+            %dd= f.text_area :body, placeholder: "Add comment..."
+        %fieldset.actions
+          = f.submit 'Post Comment'
+  .comments-container
+    - comments.each do |comment|
+      .comment
+        %p.username= comment.user.username
+        %p.content= comment.body
+        - if current_user.id == comment.user.id
+          %p.actions
+            = link_to 'Delete', comment_path(comment.id, post_id: post.id), method: :delete, class: "delete"
+    .comment
+      %p.username LukePfeiffer:
+      %p.content Nulla varius pharetra metus, et mollis diam tincidunt sed. Nulla ac ante nunc. Cras eleifend risus non eros molestie euismod. Aenean non sem orci. Aenean varius vitae risus molestie interdum. Nam ut sodales ipsum. Nulla vulputate, tortor sed convallis congue, purus libero dignissim nisi, non consectetur nulla felis non lacus.
+      %a
+        %p View replies (2)
