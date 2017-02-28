@@ -1,11 +1,8 @@
 Feature: Post
   Scenario: Admin creates post
-    Given the following user:
-      | username | username          |
-      | email    | email@example.com |
-      | password | password          |
-      | is_admin | true              |
-    And I sign in as a user
+    Given 1 admin
+    And 1 Course
+    And I sign in as an admin
     When I follow "Create Post"
     And I fill in "Title" with "title"
     And I fill in "post[embed_url]" with "www.google.com"
@@ -14,17 +11,13 @@ Feature: Post
     Then I should see "title"
     And I should see "www.google.com"
     And I should see "Some description"
+
   Scenario: Admin deletes post
-    Given the following user:
-      | username | username          |
-      | email    | email@example.com |
-      | password | password          |
-      | is_admin | true              |
-    And the following post:
-      | title       | title          |
-      | description | description    |
-      | embed_url   | www.google.com |
-    And I sign in as a user
+    Given 1 admin
+    And 1 Course
+    And that course has 1 Post
+    And that post belongs to that user
+    And I sign in as an admin
     When I follow "Delete"
     Then I should not see "title"
     And I should not see "description"

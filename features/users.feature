@@ -10,21 +10,16 @@ Feature: User
     Then I should be on the "/" page
     And I should see "Signed in as username"
   Scenario: User Signs In
-    Given the following user:
-      | username | username     |
-      | email    | new@user.com |
-      | password | password     |
+    Given 1 user
     And I am on the home page
     And I follow "Sign In"
-    When I fill in "sign_in_email" with "new@user.com"
+    When I fill in "sign_in_email" with "email@example.com"
     And I fill in "sign_in_password" with "password"
     And I press "Sign In"
     Then I should be on the "/" page
     And I should see "Signed in as username"
   Scenario: User Signs out
-    Given the following user:
-      | email    | email@example.com |
-      | password | password          |
+    Given 1 user
     And I sign in as a user
     When I follow "Sign Out"
     Then I should see "Sign In"

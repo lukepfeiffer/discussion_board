@@ -6,12 +6,24 @@ When /^I sign in as a user$/ do
   click_button 'Sign In'
 end
 
+When /^I sign in as an admin$/ do
+  # must have admin in the database!!!
+  visit sign_in_path
+  fill_in 'sign_in_email', with: 'admin@example.com'
+  fill_in 'sign_in_password', with: 'password'
+  click_button 'Sign In'
+end
+
 When /^I confirm the dialogue$/ do
   page.driver.browser.switch_to.alert.accept
 end
 
 When /^I follow "(.+)"$/ do |link_name|
   click_link link_name
+end
+
+When "I debug" do
+  require 'pry'; binding.pry;
 end
 
 Given "I am on the home page" do
