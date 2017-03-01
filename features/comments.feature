@@ -5,7 +5,8 @@ Feature: Comments
     And 1 course
     And that course has 1 post
     And that post belongs to that user
-    And I follow "title"
-    When I fill in "comment[body]" with "Some text"
+    And I sign in as a user
+    And I am on a show post page
+    When I fill in "comment_body" with "Some text"
     And I press "Post Comment"
     Then I should see "Some text"

@@ -30,6 +30,10 @@ Given "I am on the home page" do
   visit root_path
 end
 
+And /^I am on a show post page$/ do
+  visit post_path(Post.last.id)
+end
+
 And /^I am on the "(.+)" page$/ do |path|
   visit path
 end
