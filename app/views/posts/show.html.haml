@@ -27,8 +27,5 @@
         - if current_user.id == comment.user.id
           %p.actions
             = link_to 'Delete', comment_path(comment.id, post_id: post.id), method: :delete, class: "delete"
-    .comment
-      %p.username LukePfeiffer:
-      %p.content Nulla varius pharetra metus, et mollis diam tincidunt sed. Nulla ac ante nunc. Cras eleifend risus non eros molestie euismod. Aenean non sem orci. Aenean varius vitae risus molestie interdum. Nam ut sodales ipsum. Nulla vulputate, tortor sed convallis congue, purus libero dignissim nisi, non consectetur nulla felis non lacus.
-      %a
-        %p View replies (2)
+        %a
+          %p View replies (2)

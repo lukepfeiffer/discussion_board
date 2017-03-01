@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :courses
   resources :comments
 
-  get '/temp_show', to: 'posts#temp_show'
   get '/contact', to: 'pages#contact'
   get '/about', to: 'pages#about'
   get '/sign_in', to: 'pages#sign_in'
