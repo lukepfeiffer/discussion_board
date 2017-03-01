@@ -15,6 +15,14 @@ class PostsController < ApplicationController
   end
 
   def index
+    if params[:page].present?
+      upper_bounds = params[:page].to_i * 10
+      upper_bounds < posts.count ? @upper_bounds = upper_bounds : @upper_bounds = posts.count
+      @lower_bounds = params[:page].to_i * 10 - 9
+    else
+      @lower_bounds = 1
+      posts.count > 10 ? @upper_bounds = 10 : @upper_bounds = Post.all.count
+    end
   end
 
   def new
@@ -24,7 +32,7 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     post.user_id = current_user.id
 
-    if params[:publish_date].blank?
+    if params[:post][:publish_date].blank?
       post.publish_date = Date.today
     end
 

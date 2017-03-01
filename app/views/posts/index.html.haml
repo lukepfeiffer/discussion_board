@@ -25,3 +25,4 @@
         = link_to root_path do
           %p.course= post.course.course_code
   = will_paginate posts
+  %p= @lower_bounds.to_s + " - " + @upper_bounds.to_s
