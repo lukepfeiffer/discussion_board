@@ -28,4 +28,6 @@
           %p.actions
             = link_to 'Delete', comment_path(comment.id, post_id: post.id), method: :delete, class: "delete"
         %a
-          %p View replies (2)
+
+          // Does not work currently
+          %p View replies (#{comment.id})
