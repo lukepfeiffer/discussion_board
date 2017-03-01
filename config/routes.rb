@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   resources :courses
   resources :comments
 
+  resources :admins do
+    collection do
+      get 'overview'
+    end
+  end
+
   get '/contact', to: 'pages#contact'
   get '/about', to: 'pages#about'
   get '/sign_in', to: 'pages#sign_in'

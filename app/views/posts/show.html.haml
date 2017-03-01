@@ -22,12 +22,12 @@
   .comments-container
     - comments.each do |comment|
       .comment
-        %p.username= comment.user.username
+        %p.username= comment.user.username + ":"
         %p.content= comment.body
-        - if current_user.id == comment.user.id
-          %p.actions
-            = link_to 'Delete', comment_path(comment.id, post_id: post.id), method: :delete, class: "delete"
         %a
 
           // Does not work currently
           %p View replies (#{comment.id})
+        - if  current_user.present? && current_user.id == comment.user.id
+          %p.actions
+            = link_to 'Delete', comment_path(comment.id, post_id: post.id), method: :delete, class: "delete"

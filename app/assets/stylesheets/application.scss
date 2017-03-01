@@ -50,6 +50,13 @@
       padding: 0.5em;
       font-size: 16px;
     }
+
+    @media only screen and (max-device-width: 768px) {
+      input[type=submit]{
+        width: 25%;
+      }
+    }
+
     select{
       background-color: #fff;
     }
@@ -156,6 +163,8 @@ form.search-bar {
   margin-top: 0;
   // Button Styles
 
+  // Make body different size for mobile
+
   .edit{
     border: 1px solid $warning-color;
     padding: 0.5em;
@@ -208,6 +217,12 @@ form.search-bar {
     margin-right: auto;
     width: $body-size;
     background-color: #fff;
+  }
+
+  @media only screen and (max-device-width: 768px) {
+    .page-content{
+      width: 80%;
+    }
   }
 
   .admin-actions{
@@ -351,7 +366,7 @@ form.search-bar {
 
         h1{
           a{
-            font-size: 2em;
+            font-size: 1.5em;
             text-decoration: none;
             color: $gator-blue;
           }
@@ -372,23 +387,25 @@ form.search-bar {
           p{
             text-align: right;
           }
-          .course{
-            color: $gator-blue;
-            font-size: 24px;
-            margin: 0.25em 0;
-          }
           .italic{
-            font-size: 20px;
+            font-size: 12px;
             font-style: italic;
             color: $soft-gray;
             font-weight: 200;
             margin: 0;
           }
+          a{
+            .course{
+              font-size: 12px;
+              color: $gator-blue;
+              margin: 0.25em 0;
+            }
+          }
         }
 
         .description{
           margin-top: 1.0em;
-          font-size: 1.3em;
+          font-size: 12px;
           text-align: left;
           a{
             color: #000;
@@ -513,6 +530,7 @@ form.search-bar {
     text-align: left;
     h1{
       text-align: center;
+      color: $gator-blue;
     }
     .publisher{
       color: $soft-gray;
@@ -560,6 +578,10 @@ form.search-bar {
         margin: 1em 0;
         padding-bottom: 1em;
         border-bottom: 1px solid darken(#fff, 10%);
+
+        &:hover{
+          background-color: darken(#fff, 1%);
+        }
 
         .username{
           display: inline;
@@ -630,6 +652,13 @@ form.search-bar {
       }
     }
   }
+
+  #admin-overview{
+    h2{
+      text-align: left;
+    }
+  }
+
   #contact{
     margin-top: 0;
     margin-left: 1em;
@@ -692,6 +721,111 @@ form.search-bar {
 
     em, .disabled{
       background-color: darken($background-color, 10%);
+    }
+  }
+
+  // Table styles
+
+  .tables {
+    $base-border-color: gainsboro !default;
+    $base-border-radius: 3px !default;
+    $base-line-height: 1.5em !default;
+    $base-spacing: 1.5em !default;
+    $action-color: #477DCA !default;
+    $dark-gray: #333 !default;
+    $light-gray: #DDD !default;
+    $medium-screen: 40em !default;
+    $large-screen: 53.75em !default;
+    $base-font-color: $dark-gray !default;
+    $table-border-color: $base-border-color;
+    $table-border: 1px solid $table-border-color;
+    $table-background: lighten($table-border-color, 12%);
+    $table-header-background: lighten($table-background, 10%);
+    $table-hover-background: darken($table-background, 5%);
+    $table-stripe-background: darken($table-background, 2%);
+    $table-stripe-background-hover: darken($table-stripe-background, 5%);
+    $table-padding: 0.75em 1em;
+
+    border: $table-border;
+    border-collapse: separate;
+    border-left: 0;
+    border-radius: $base-border-radius;
+    border-spacing: 0;
+    width: 100%;
+
+    tbody {
+      background-color: $table-background;
+
+      tr:hover > td, tr:hover > th {
+        background-color: $table-hover-background;
+      }
+      tr:nth-child(even) {
+        background-color: $table-stripe-background;
+        &:hover > td {
+          background-color: $table-stripe-background-hover;
+        }
+      }
+    }
+
+    thead:first-of-type {
+      tr:first-child > th:first-child {
+        border-top-left-radius: $base-border-radius;
+      }
+
+      tr:first-child > th:last-child {
+        border-top-right-radius: $base-border-radius;
+      }
+    }
+
+    tbody:last-child {
+      tr:last-child > td:first-child {
+        border-bottom-left-radius: $base-border-radius;
+      }
+
+      tr:last-child > td:last-child {
+        border-bottom-right-radius: $base-border-radius;
+      }
+    }
+
+    thead {
+      th {
+        background-color: $table-header-background;
+        border-bottom: 0;
+        border-left: 1px solid $table-border-color;
+        padding: $table-padding;
+        text-align: left;
+
+        &:first-child {
+          border-left: 0;
+        }
+      }
+    }
+
+    tbody {
+      background-color: $table-background;
+
+      td {
+        border-bottom: 0;
+        border-left: 1px solid $table-border-color;
+        border-top: 1px solid $table-border-color;
+        padding: $table-padding;
+
+        &:first-child {
+          border-left: 0;
+        }
+
+        button {
+          display: inline-block;
+          font-size: 0.7em;
+          line-height: $base-line-height;
+          margin-bottom: 0.3em;
+          margin-right: 0.5em;
+          outline: none;
+          padding: 0.3em 1em;
+          width: 100%;
+
+        }
+      }
     }
   }
 

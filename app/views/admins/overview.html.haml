@@ -1,0 +1,44 @@
+#admin-overview
+  %h1 Courses
+  .post-actions
+    %h2 Recent Posts
+  .course-actions
+    %h2 All Courses
+    %table.tables
+      %thead
+        %tr
+          %th Name
+          %th Course Code
+          %th # of posts
+          %th Date Created
+          %th Actions
+      %tbody
+        - courses.each do |course|
+          %tr
+            %td= course.name
+            %td= course.course_code
+            %td= course.posts.count
+            %td= course.created_at.strftime("%m/%d/%Y");
+            %td
+              = link_to 'edit', edit_course_path(course.id), class: 'edit'
+
+  .admin-list
+    %h2 All Admins
+    %table.tables
+      %thead
+        %tr
+          %th Username
+          %th Email
+          %th # of posts created
+          %th Admin date
+          %th Actions
+
+      %tbody
+        - admins.each do |admin|
+          %tr
+            %td= admin.username
+            %td= admin.email
+            %td= admin.posts.count
+            %td= admin.updated_at.strftime("%m/%d/%Y");
+            %td
+              = link_to 'Remove admin access', root_path, class: 'delete'
