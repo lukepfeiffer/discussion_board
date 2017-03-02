@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resources :posts
-  resources :users
+  resources :users do
+    collection do
+      get 'make_admin'
+      get 'remove_admin'
+    end
+  end
   resources :courses
   resources :comments
 

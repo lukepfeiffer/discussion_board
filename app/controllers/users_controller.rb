@@ -9,6 +9,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def make_admin
+    user = User.find(params[:user_id])
+    user.update(is_admin: true)
+    redirect_to overview_admins_path
+  end
+
+  def remove_admin
+    user = User.find(params[:user_id])
+    user.update(is_admin: false)
+    redirect_to overview_admins_path
+  end
+
   def user_params
     params.require(:user).permit(
       :username,
