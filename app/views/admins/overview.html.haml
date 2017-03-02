@@ -55,7 +55,7 @@
               %td= admin.posts.count
               %td= admin.updated_at.strftime("%m/%d/%Y");
               %td
-                = link_to 'Remove admin access', remove_admin_users_path(user_id: admin.id), class: 'delete'
+                = link_to 'Remove admin access', remove_admin_users_path(user_id: admin.id), class: 'delete remove_admin', id: admin.username
       %h2 All Users
       %table.tables
         %thead
@@ -72,4 +72,4 @@
               %td= user.email
               %td= user.updated_at.strftime("%m/%d/%Y")
               %td
-                = link_to 'Make Admin', make_admin_users_path(user_id: user.id), class: 'success'
+                = link_to 'Make Admin', make_admin_users_path(user_id: user.id), class: 'success make_admin', id: user.username
