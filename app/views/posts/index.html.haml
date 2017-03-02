@@ -19,7 +19,8 @@
           = link_to 'Delete', post_path(post.id), method: :delete, class: 'delete'
       .details
         %p.italic
-          = post.user.username
+          - if post.user.present?
+            = post.user.username
           &bull;
           = post.publish_date.strftime("%B %-d, %Y")
         = link_to root_path do

@@ -19,7 +19,7 @@ class AdminsController < ApplicationController
   end
 
   expose :admins do
-    User.where(is_admin: true)
+    User.where(is_admin: true, is_super_user: false)
   end
 
   expose :users do

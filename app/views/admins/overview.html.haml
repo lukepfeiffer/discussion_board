@@ -55,7 +55,7 @@
               %td= admin.posts.count
               %td= admin.updated_at.strftime("%m/%d/%Y");
               %td
-                = link_to 'Remove admin access', remove_admin_users_path(user_id: admin.id), class: 'delete remove_admin', id: admin.username
+                = link_to 'Remove Admin', remove_admin_users_path(user_id: admin.id), class: 'delete remove_admin', id: admin.username
       %h2 All Users
       %table.tables
         %thead

@@ -2,7 +2,6 @@ Fabricator(:user) do
   email 'email@example.com'
   username 'username'
   password 'password'
-  id '1'
 end
 
 Fabricator(:admin, from: :user) do
@@ -10,5 +9,9 @@ Fabricator(:admin, from: :user) do
   username 'username'
   password 'password'
   is_admin 'true'
-  id '1'
+end
+
+Fabricator(:super_user, from: :admin) do
+  email 'superuser@example.com'
+  is_super_user 'true'
 end

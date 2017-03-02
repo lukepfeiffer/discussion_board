@@ -6,6 +6,14 @@ When /^I sign in as a user$/ do
   click_button 'Sign In'
 end
 
+When /^I sign in as a super user$/ do
+  # must have user in the database!!!
+  visit sign_in_path
+  fill_in 'sign_in_email', with: 'superuser@example.com'
+  fill_in 'sign_in_password', with: 'password'
+  click_button 'Sign In'
+end
+
 When /^I sign in as an admin$/ do
   # must have admin in the database!!!
   visit sign_in_path
