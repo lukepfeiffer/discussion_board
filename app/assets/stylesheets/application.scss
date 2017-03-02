@@ -360,6 +360,14 @@ form.search-bar {
   }
 
   .admin-posts-container{
+    .selected{
+      background-color: #ccc;
+      font-weight: bold;
+    }
+    .success{
+      border-radius: 0;
+      border: none;
+    }
     .filters{
       margin-bottom: 1em;
     }

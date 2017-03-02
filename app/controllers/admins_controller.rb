@@ -7,11 +7,14 @@ class AdminsController < ApplicationController
 
   expose :posts do
     if params[:user_id].present?
-      current_user.posts
-    elsif params[:order].present? && params[:order] == "recent"
-      Post.all.order("publish_date DESC")
-    elsif params[:order].present? && params[:order] == "oldest"
+      current_user.posts.order("publish_date DESC")
+    elsif params[:order].present?
       Post.all.order("publish_date ASC")
+    elsif params[:published].present?
+      Post.all
+        .paginate(page: params[:page], per_page: 10)
+        .where('publish_date < ?', Date.today)
+        .order('created_at DESC')
     else
       Post.all.order("publish_date DESC")
     end
