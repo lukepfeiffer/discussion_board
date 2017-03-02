@@ -9,7 +9,7 @@ Feature: Admins
     Then I should see "title"
   Scenario: Admin views all courses
     Given 1 admin
-    And 1 user
+    And 1 course
     And I sign in as an admin
     When I follow "All Actions"
     Then I should see "description"
