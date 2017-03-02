@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :admins do
     collection do
+      get 'posts'
       get 'overview'
     end
   end

@@ -2,7 +2,7 @@
   .post-actions
     %h2
       Recent Posts
-      = link_to 'View All', root_path, class: 'success'
+      = link_to 'View All', posts_admins_path, class: 'success'
     .cards
       - recent_posts.each do |post|
         = link_to post_path(post.id) do

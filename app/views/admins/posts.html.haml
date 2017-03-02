@@ -1,0 +1,15 @@
+.posts-container
+  .filters
+    = link_to 'My Posts', posts_admins_path(user_id: current_user.id), class: 'success'
+  .cards
+    - posts.each do |post|
+      = link_to post_path(post.id) do
+        .card
+          .card-image= image_tag 'placeholder.jpg'
+          .card-header
+            %span.title= post.title.truncate(30)
+            %span.italic= post.publish_date.strftime("%m/%d/%Y")
+          .card-copy
+            %span.description= post.description.truncate(100)
+            .actions
+              = link_to 'Edit', edit_post_path(post.id), class: 'edit'
