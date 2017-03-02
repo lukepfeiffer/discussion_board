@@ -359,6 +359,12 @@ form.search-bar {
     }
   }
 
+  .admin-posts-container{
+    .filters{
+      margin-bottom: 1em;
+    }
+  }
+
   .posts-container{
     @media only screen and (max-device-width: 768px) {
       .post{

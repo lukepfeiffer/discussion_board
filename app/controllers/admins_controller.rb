@@ -8,9 +8,12 @@ class AdminsController < ApplicationController
   expose :posts do
     if params[:user_id].present?
       current_user.posts
-    # elsif params[:start_date].present? && params[:end_date].present?
+    elsif params[:order].present? && params[:order] == "recent"
+      Post.all.order("publish_date DESC")
+    elsif params[:order].present? && params[:order] == "oldest"
+      Post.all.order("publish_date ASC")
     else
-      Post.all
+      Post.all.order("publish_date DESC")
     end
   end
 

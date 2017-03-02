@@ -1,6 +1,8 @@
-.posts-container
+.admin-posts-container
   .filters
     = link_to 'My Posts', posts_admins_path(user_id: current_user.id), class: 'success'
+    = link_to 'Recent', posts_admins_path(order: 'recent'), class: 'success'
+    = link_to 'oldest', posts_admins_path(order: 'oldest'), class: 'success'
   .cards
     - posts.each do |post|
       = link_to post_path(post.id) do
