@@ -1,8 +1,3 @@
-%form.search-bar{role:"search", actions: '/posts', method: :get}
-  %input{type:"search", placeholder:"Search Lessons", name: 'search', id: 'search'}
-  %button{type:"submit"}
-    %i.fa.fa-search
-
 .posts-container
   - posts.each do |post|
     .post

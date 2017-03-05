@@ -17,6 +17,11 @@
           = link_to 'Sign Out', sign_out_path, method: :delete
         - else
           = link_to 'Sign In', sign_in_path
+        %form.search-bar{role:"search", actions: '/posts', method: :get}
+          %input{type:"search", placeholder:"Search Lessons", name: 'search', id: 'search'}
+          %button{type:"submit"}
+            %i.fa.fa-search
+
     - if current_user.present?
       .user-info
         Signed in as
