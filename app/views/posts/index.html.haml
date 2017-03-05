@@ -23,7 +23,7 @@
             = post.user.username
           &bull;
           = post.publish_date.strftime("%B %-d, %Y")
-        = link_to root_path do
+        = link_to posts_path(course_code: post.course.course_code) do
           %p.course= post.course.course_code
   = will_paginate posts
   %p= @lower_bounds.to_s + " - " + @upper_bounds.to_s

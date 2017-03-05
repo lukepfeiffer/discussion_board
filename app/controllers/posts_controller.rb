@@ -11,7 +11,12 @@ class PostsController < ApplicationController
     Course.all
   end
   expose :posts do
-    Post.all.paginate(page: params[:page], per_page: 10).order("publish_date DESC")
+    if params[:course_code].present?
+      course = Course.find_by(course_code: params[:course_code])
+      Post.where(course_id: course.id).paginate(page: params[:page], per_page: 10).order("publish_date DESC")
+    else
+      Post.all.paginate(page: params[:page], per_page: 10).order("publish_date DESC")
+    end
   end
 
   def index
@@ -21,7 +26,7 @@ class PostsController < ApplicationController
       @lower_bounds = params[:page].to_i * 10 - 9
     else
       @lower_bounds = 1
-      posts.count > 10 ? @upper_bounds = 10 : @upper_bounds = Post.all.count
+      posts.count > 10 ? @upper_bounds = 10 : @upper_bounds = posts.count
     end
   end
 
