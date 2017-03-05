@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resources :posts
+  resources :courses
   resources :users do
     collection do
       get 'make_admin'

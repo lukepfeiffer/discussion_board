@@ -1,0 +1,13 @@
+%h1 Create Course
+.form
+  = form_for course do |f|
+    %fieldset
+      %dl
+        %dt= f.label :name
+        %dd= f.text_field :name
+        %dt= f.label :description
+        %dd= f.text_area :description
+        %dt= f.label :course_code
+        %dd= f.text_field :course_code
+    %fieldset.actions
+      = f.submit 'Create Course'

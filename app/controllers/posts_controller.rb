@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_admin, only: [:new, :edit, :destroy]
+
   expose :post
   expose :comment do
     Comment.new
