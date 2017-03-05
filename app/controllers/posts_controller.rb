@@ -14,6 +14,8 @@ class PostsController < ApplicationController
     if params[:course_code].present?
       course = Course.find_by(course_code: params[:course_code])
       Post.where(course_id: course.id).paginate(page: params[:page], per_page: 10).order("publish_date DESC")
+    elsif params[:search].present?
+      Post.fuzzy_search(params[:search]).paginate(page: params[:page], per_page: 10).order("publish_date DESC")
     else
       Post.all.paginate(page: params[:page], per_page: 10).order("publish_date DESC")
     end

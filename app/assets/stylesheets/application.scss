@@ -70,7 +70,7 @@
   }
 }
 // Search bar styles
-form.search-bar {
+.search-bar {
   $base-spacing: 1.5em !default;
   $base-border-color: gainsboro !default;
   $base-line-height: 1.5em !default;
@@ -566,6 +566,15 @@ form.search-bar {
 
       .date{
         font-style: italic;
+      }
+    }
+
+    a{
+      text-decoration: none;
+      .course{
+        font-size: 16px;
+        color: $gator-blue;
+        margin: 0.25em 0;
       }
     }
 

@@ -1,5 +1,5 @@
-%form.search-bar{role:"search"}
-  %input{type:"search", placeholder:"Search Lessons"}
+%form.search-bar{role:"search", actions: '/posts', method: :get}
+  %input{type:"search", placeholder:"Search Lessons", name: 'search', id: 'search'}
   %button{type:"submit"}
     %i.fa.fa-search
 

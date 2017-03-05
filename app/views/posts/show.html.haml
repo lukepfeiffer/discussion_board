@@ -7,9 +7,12 @@
         %span.author= post.user.username
         &bull;
         %span.date= post.publish_date.strftime("%B %-d, %Y" )
-      %p.course_code= post.course.course_code
+      = link_to posts_path(course_code: post.course.course_code) do
+        %p.course= post.course.course_code
       %p.description= post.description
-  %h2 Comments &bull; (55)
+  %h2
+    Comments &bull;
+    = post.comments.count
   - if current_user.present?
     .form
       = form_for comment do |f|
