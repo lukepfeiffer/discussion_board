@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_admin, only: [:new, :edit, :destroy]
+  before_action :authenticate_admin, only: [:new, :edit, :destroy, :create, :update]
 
   expose :post
   expose :comment do
@@ -48,6 +48,22 @@ class PostsController < ApplicationController
       redirect_to post_path(post)
     else
       render :new
+    end
+  end
+
+  def update
+    post = Post.find(params[:id])
+
+    if params[:post][:publish_date].blank?
+      post.publish_date = Date.today
+    end
+
+    post.update(post_params)
+
+    if post.save
+      redirect_to post_path(post)
+    else
+      redirect_to edit_posts_path(post.id)
     end
   end
 
