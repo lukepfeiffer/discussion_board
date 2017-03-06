@@ -86,6 +86,7 @@ class PostsController < ApplicationController
       :embed_url,
       :course_id,
       :description,
+      :image_url,
       :publish_date
     )
   end
