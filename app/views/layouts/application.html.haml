@@ -32,6 +32,11 @@
           = link_to 'Create Course', new_course_path, class: 'profile'
           = link_to 'All Actions', overview_admins_path, class: 'view'
 
+    - if params[:message].present?
+      - if @green_message
+        %span.message.success-alert= @message
+      - else
+        %span.message.danger-alert= @message
     .page-content
       = yield
 

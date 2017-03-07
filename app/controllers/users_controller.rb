@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
+  expose :new_user do
+    User.new
+  end
+
   def create
     user = User.new(user_params)
     if user.save
       UserMailer.registration_confirmation(user).deliver_now
-      flash[:success] = "Please confirm your email address to continue"
-      redirect_to :root
+      redirect_to root_path(message: 'confirm_registry')
     else
-      flash[:error] = "Ooooppss, something went wrong!"
-      redirect_to sign_in_path
+      render 'pages/sign_in'
     end
   end
 
@@ -21,12 +23,9 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
-      Please sign in to continue."
-      redirect_to sign_in_path
+      redirect_to sign_in_path(message: 'confirmed_user')
     else
-      flash[:error] = "Sorry. User does not exist"
-      redirect_to root_path
+      redirect_to root_path(message: 'user_not_found')
     end
   end
 

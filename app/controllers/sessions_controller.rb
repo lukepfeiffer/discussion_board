@@ -1,18 +1,19 @@
 class SessionsController < ApplicationController
+  expose :new_user do
+    User.new
+  end
+
   def create
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       if user.confirmed_email
         sign_in(user)
-        redirect_to root_path
+        redirect_to root_path(message: 'successful_sign_in')
       else
-        flash.now[:error] = 'Please activate your account by following the
-          instructions in the account confirmation email you received to proceed'
-        render sign_in_path
+        redirect_to sign_in_path(message: 'account_activation_needed')
       end
     else
-      flash.now[:error] = 'Invalid email/password combination'
-      render sign_in_path
+      redirect_to sign_in_path(message: 'invalid_login')
     end
   end
 
