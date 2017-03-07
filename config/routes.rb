@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       get 'make_admin'
       get 'remove_admin'
     end
+    member do
+      get :confirm_email
+    end
   end
   resources :courses
   resources :comments
