@@ -4,7 +4,7 @@
     .video= raw post.embed_url.html_safe
     .content
       %p.publisher
-        %span.author= post.user.username
+        %span.author= post.user.username if post.user.present?
         &bull;
         %span.date= post.publish_date.strftime("%B %-d, %Y" )
       = link_to posts_path(course_code: post.course.course_code) do
