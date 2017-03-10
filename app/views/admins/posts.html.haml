@@ -8,7 +8,7 @@
     - posts.each do |post|
       = link_to post_path(post.id) do
         .card
-          .card-image= image_tag 'placeholder.jpg'
+          .card-image= image_tag post.image_url.present? ? post.image_url : 'placeholder.jpg'
           .card-header
             %span.title= post.title.truncate(30)
             %span.italic= post.publish_date.strftime("%m/%d/%Y")

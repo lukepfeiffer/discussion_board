@@ -4,10 +4,7 @@
       %h1.title= link_to post.title, post_path(post.id)
       .video
         = link_to post_path(post.id) do
-          - if post.image_url.present?
-            = image_tag post.image_url
-          - else
-            = image_tag 'placeholder.jpg'
+          = image_tag post.image_url.present? ? post.image_url : 'placeholder.jpg'
           %i.fa.fa-play
       .description
         = link_to post.description.truncate(500), post_path(post.id)
