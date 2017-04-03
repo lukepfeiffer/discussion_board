@@ -2,6 +2,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
   has_many :votes
+  has_many :comments
 
   def vote_count(votes)
     value = 0

@@ -13,12 +13,28 @@ class CommentsController < ApplicationController
     end
   end
 
+  def create_reply
+    comment = Comment.new(comment_params)
+    comment.comment_id = params[:comment_id]
+    comment.user_id = current_user.id
+    if comment.save
+      redirect_to post_path(params[:post_id])
+    else
+      redirect_to post_path(params[:post_id])
+    end
+  end
+
+  def replies
+    comment = Comment.find(params[:comment_id])
+    @comments = comment.comments.order('created_at DESC')
+    render partial: 'replies'
+  end
+
   def destroy
     comment = Comment.find(params[:id])
     comment.delete
     redirect_to post_path(params[:post_id])
   end
-
 
   def like
     comment = Comment.find(params[:comment_id])

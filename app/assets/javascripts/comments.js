@@ -32,4 +32,40 @@ $(document).ready(function() {
       }
     });
   });
+
+  // Show form to post a reply
+  $('.comment').on('click', '.reply-button', function(){
+    var replyId = $(this).data('id');
+    var form = $('.hidden' + replyId);
+    form.show();
+  });
+
+  // Show all replies for a comment
+  $('.comment').on('click', '.replies', function(){
+    var commentReply = $(this);
+    var commentId = commentReply.data('id');
+    var hideReplies = $('.hide-replies' + commentReply.data('id'));
+    $.ajax({
+      type: 'GET',
+      url: commentReply.data('url'),
+      success: function(response){
+        $('.like-buttons' + commentId).after(response);
+        hideReplies.show();
+        commentReply.hide();
+      }
+    });
+  });
+
+  // Hide replies for a comment
+  $('.comment').on('click', '.hide-replies', function(){
+    var commentId = $(this).data('id');
+    var replyContainer = $('.reply-container' + commentId);
+    var hideReply = $(this);
+    var viewReply = $('replies' + commentId);
+    replyContainer.remove();
+    viewReply.show();
+    hideReply.show();
+
+  });
+
 });

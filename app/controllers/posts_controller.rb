@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     Comment.new
   end
   expose :comments do
-    post.comments.order("created_at DESC")
+    post.comments.where(comment_id: nil).order("created_at DESC")
   end
   expose :courses do
     Course.all

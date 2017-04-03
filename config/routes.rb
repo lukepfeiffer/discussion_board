@@ -26,7 +26,10 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/sign_in', to: 'pages#sign_in'
 
+  post '/create_reply', to: 'comments#create_reply'
   post '/sign_in', to: 'sessions#create'
+  get '/hide_replies', to: 'comments#replies'
+  get '/replies', to: 'comments#replies'
   get '/like', to: 'comments#like'
   get '/dislike', to: 'comments#dislike'
 
