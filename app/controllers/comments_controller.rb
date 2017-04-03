@@ -18,11 +18,47 @@ class CommentsController < ApplicationController
     comment.delete
     redirect_to post_path(params[:post_id])
   end
+
+
+  def like
+    comment = Comment.find(params[:comment_id])
+    get_vote(comment)
+    if @vote.value < 1
+      @vote.value = 1
+      if @vote.save
+        head :ok
+      end
+    else
+      head :no_content
+    end
+  end
+
+  def dislike
+    comment = Comment.find(params[:comment_id])
+    get_vote(comment)
+    if @vote.value > -1
+      @vote.value = -1
+      if @vote.save
+        head :ok
+      end
+    else
+      head :no_content
+    end
+  end
+
   private
 
   def authenticate_user
     if current_user.nil?
       redirect_to root_path
+    end
+  end
+
+  def get_vote(comment)
+    @vote = comment.votes.find_by_user_id(current_user.id)
+    unless @vote
+      @vote = Vote.create(:user_id => current_user.id, :value => 0)
+      comment.votes << @vote
     end
   end
 

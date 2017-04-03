@@ -1,4 +1,5 @@
 # encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307022607) do
+ActiveRecord::Schema.define(version: 20170402230103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170307022607) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comment_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -69,6 +71,12 @@ ActiveRecord::Schema.define(version: 20170307022607) do
     t.boolean  "is_super_user",                   default: false
     t.boolean  "confirmed_email",                 default: false
     t.string   "confirm_token"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "comment_id"
+    t.integer "value"
   end
 
 end

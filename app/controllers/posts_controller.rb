@@ -21,6 +21,10 @@ class PostsController < ApplicationController
       Post.all.paginate(page: params[:page], per_page: 10).order("publish_date DESC")
     end
   end
+  expose :reply_comment do
+    Comment.new
+  end
+
 
   def index
     if params[:page].present?

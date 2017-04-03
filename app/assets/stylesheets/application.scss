@@ -201,6 +201,10 @@
   margin-top: 0;
   // Button Styles
 
+  .hidden{
+    display: none;
+  }
+
 
   .success{
     border: 1px solid $success-color;
@@ -749,6 +753,29 @@
 
         &:hover{
           background-color: darken(#fff, 1%);
+        }
+
+        .reply-button{
+          color: $link-color;
+          margin-right: 7px;
+          &:hover{
+            cursor: pointer;
+            color: darken($link-color, 5%);
+            text-decoration: underline;
+          }
+        }
+
+        .like-buttons{
+          color: $link-color;
+          margin: 0 7px;
+
+          &:hover{
+            cursor: pointer;
+          }
+
+          .fa{
+            margin-left: 5px;
+          }
         }
 
         .username{
