@@ -1,0 +1,56 @@
+// Styles dealing with the contact page
+
+#contact{
+  $font: "Varela Round", sans-serif;
+  $dark-gray: #111111;
+  $link-font-size: 24px;
+  $soft-gray: #999999;
+  $link-color: #517a9e;
+  $gator-orange: #dd661e !default;
+  $gator-blue: #00529b;
+  $danger-color: #FA3434;
+  $warning-color: #FF9308;
+  $success-color: #55acee;
+  $primary-color: #2ecc71;
+  $body-size: 60%;
+  $text-gray: #9b9b9b;
+  margin-top: 0;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: #fff;
+  text-align: left;
+
+  .header{
+    h1{
+      margin-left: 0;
+      border-bottom: 1px solid $soft-gray;
+    }
+  }
+
+  .text-block{
+
+    h1{
+      font-size: 24px;
+    }
+    ul{
+      font-size: 20px;
+      li{
+        list-style-type: none;
+        padding: 0.80em 0;
+        .link a{
+          color: $gator-blue;
+          text-decoration: none;
+          &:hover{
+            color: darken($gator-blue, 8%);
+          }
+        }
+        .email{
+          color: lighten($gator-blue, 5%);
+          &:hover{
+           color: darken($gator-blue, 6%);
+          }
+        }
+      }
+    }
+  }
+}

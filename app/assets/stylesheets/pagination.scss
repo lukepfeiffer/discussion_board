@@ -1,0 +1,23 @@
+// Styles for the pagination of each page
+.pagination{
+  $background-color: #D7DEF0;
+  $font-color: #4D4D4D;
+  padding-top: 1em;
+  text-align: center;
+  margin: 15px 0 30px 0;
+  a, .previous_page, .next_page, em{
+    background-color: $background-color;
+    text-decoration: none;
+    color: $font-color;
+    padding: 10px;
+    border-radius: 4px;
+    &:hover{
+      background-color: darken($background-color, 8%);
+    }
+  }
+
+  em, .disabled{
+    background-color: darken($background-color, 10%);
+  }
+}
+

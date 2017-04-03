@@ -1,0 +1,97 @@
+// Styles for things related exclusively to comments
+
+.comments-container{
+  $font: "Varela Round", sans-serif;
+  $dark-gray: #111111;
+  $link-font-size: 24px;
+  $soft-gray: #999999;
+  $link-color: #517a9e;
+  $gator-orange: #dd661e !default;
+  $gator-blue: #00529b;
+  $danger-color: #FA3434;
+  $warning-color: #FF9308;
+  $success-color: #55acee;
+  $primary-color: #2ecc71;
+  $body-size: 60%;
+  $text-gray: #9b9b9b;
+  margin-bottom: 10px;
+
+  .reply-container{
+    margin-left: 30px;
+    color: #000;
+    .like-buttons{
+      color: $soft-gray;
+    }
+  }
+
+  .altered-positive{
+    color: $link-color;
+  }
+
+  .altered-negative{
+    color: $danger-color;
+  }
+
+  .comment{
+    padding: 1em 1em 1em 1em;
+    border-bottom: 1px solid darken(#fff, 10%);
+
+    &:hover{
+      background-color: darken(#fff, 1%);
+    }
+
+    .comment-actions{
+      color: $text-gray;
+    }
+
+    .reply-button{
+      margin-right: 7px;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    .hide-replies{
+      color: $text-gray;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    .replies{
+      color: $link-color;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    .like-buttons{
+      margin: 0 7px;
+
+      .fa{
+        margin-left: 5px;
+
+        &:hover{
+          cursor: pointer;
+          color: $link-color;
+        }
+      }
+    }
+
+    .username{
+      display: inline;
+      color: $gator-blue;
+    }
+
+    a p{
+      margin-top: 10px;
+    }
+
+    .content{
+      display: inline;
+    }
+  }
+}

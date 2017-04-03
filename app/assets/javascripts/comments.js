@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Like comment function
-  $('.like-buttons').on('click', '.fa-thumbs-o-up', function(){
+  $('.active').on('click', '.fa-thumbs-o-up', function(){
     var comment = $(this);
     var voteCount =  comment.data('vote-count');
     var id = comment.data('id');
@@ -11,13 +11,14 @@ $(document).ready(function() {
       success: function(){
         if(voteCount >= 0) {
           voteCounter.text('+' + (voteCount + 1));
+          voteCounter.addClass('altered-positive');
         }
       }
     });
   });
 
   // Dislike comment function
-  $('.like-buttons').on('click', '.fa-thumbs-o-down', function(){
+  $('.active').on('click', '.fa-thumbs-o-down', function(){
     var comment = $(this);
     var voteCount =  comment.data('vote-count');
     var id = comment.data('id');
@@ -28,13 +29,21 @@ $(document).ready(function() {
       success: function(){
         if(voteCount > 0) {
           voteCounter.text('+' + (voteCount - 1));
+          voteCounter.addClass('altered-negative');
         }
       }
     });
   });
 
+  $('.comment').on('click', '.inactive', function(){
+    $('.page-content').before("<span class='message danger-alert' id='alert'> You need to sign in to like or reply! </span>");
+    $('#main').animate({
+      'scrollTop': $('#alert').offset().top
+    }, 300);
+  });
+
   // Show form to post a reply
-  $('.comment').on('click', '.reply-button', function(){
+  $('.active').on('click', '.reply-button', function(){
     var replyId = $(this).data('id');
     var form = $('.hidden' + replyId);
     form.show();
@@ -61,11 +70,10 @@ $(document).ready(function() {
     var commentId = $(this).data('id');
     var replyContainer = $('.reply-container' + commentId);
     var hideReply = $(this);
-    var viewReply = $('replies' + commentId);
+    var viewReply = $('.replies' + commentId);
     replyContainer.remove();
     viewReply.show();
-    hideReply.show();
-
+    hideReply.hide();
   });
 
 });

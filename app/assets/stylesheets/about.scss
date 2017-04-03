@@ -1,0 +1,67 @@
+
+#about{
+  $font: "Varela Round", sans-serif;
+  $dark-gray: #111111;
+  $link-font-size: 24px;
+  $soft-gray: #999999;
+  $link-color: #517a9e;
+  $gator-orange: #dd661e !default;
+  $gator-blue: #00529b;
+  $danger-color: #FA3434;
+  $warning-color: #FF9308;
+  $success-color: #55acee;
+  $primary-color: #2ecc71;
+  $body-size: 60%;
+  $text-gray: #9b9b9b;
+  margin-top: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: #fff;
+  text-align: left;
+  .content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+  }
+  .header{
+    h1{
+      border-bottom: 1px solid $soft-gray;
+    }
+  }
+  .text-block{
+    height: 6.5em;
+    padding: 1em 0.5em;
+    &:hover{
+      background-color: darken(#fff, 4%);
+    }
+
+    .orange{
+      color: $gator-orange;
+      &:hover{
+        color: darken($gator-orange, 7%);
+      }
+    }
+
+    .sub-header{
+      color: $gator-orange;
+      height: 2.8em;
+      float: left;
+      margin-right: 2em;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 25px;
+      width: 4em;
+    }
+    .sub-text{
+      color: $gator-blue;
+      font-size: 18px;
+      line-height: 25px;
+      a{
+        color: $gator-orange;
+        &:hover{
+          color: darken($gator-orange, 10%);
+        }
+      }
+    }
+  }
+}
