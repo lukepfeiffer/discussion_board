@@ -31,5 +31,18 @@ module DiscussionBoard
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_mailer.smtp_settings = {
+      address:              ENV["EMAIL_ADDRESS"],
+      port:                 587,
+      domain:               ENV["EMAIL_DOMAIN"],
+      user_name:            ENV["EMAIL_USERNAME"],
+      password:             ENV["EMAIL_PASSWORD"],
+      authentication:       :plain,
+      enable_starttls_auto: true
+    }
+
+    # Early load .env file
+    Dotenv::Railtie.load
   end
 end
