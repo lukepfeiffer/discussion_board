@@ -41,8 +41,5 @@ module DiscussionBoard
       authentication:       :plain,
       enable_starttls_auto: true
     }
-
-    # Early load .env file
-    Dotenv::Railtie.load
   end
 end
