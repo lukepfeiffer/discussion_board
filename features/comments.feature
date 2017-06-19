@@ -8,7 +8,7 @@ Feature: Comments
     And I sign in as a user
     And I am on a show post page
     When I fill in "comment_body" with "Some text"
-    And I press "Post Comment"
+    And I press "Post"
     Then I should see "Some text"
 
   Scenario: User deletes comments
