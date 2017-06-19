@@ -12,4 +12,5 @@ Feature: Admins
     And 1 course
     And I sign in as an admin
     When I follow "All Actions"
-    Then I should see "description"
+    Then I should be on the "/admins/overview" page
+    And I should see "cop3502"
