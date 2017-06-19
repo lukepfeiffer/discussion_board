@@ -32,6 +32,9 @@ module DiscussionBoard
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.raise_delivery_errors = true
+
     config.action_mailer.smtp_settings = {
       address:              ENV["EMAIL_ADDRESS"],
       port:                 587,
