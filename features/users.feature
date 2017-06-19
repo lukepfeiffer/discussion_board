@@ -8,7 +8,7 @@ Feature: User
     And I fill in "sign_up_confirmation" with "password"
     And I press "Sign Up"
     Then I should be on the "/" page
-    And I should see "Signed in as username"
+    And I should see "User successfully created. We sent an email to verify your account."
 
   Scenario: User Signs In
     Given 1 user
