@@ -5,6 +5,10 @@ Fabricator(:user) do
   confirmed_email true
 end
 
+Fabricator(:unconfirmed_user, from: :user) do
+  confirmed_email false
+end
+
 Fabricator(:admin, from: :user) do
   email 'admin@example.com'
   username 'username'
