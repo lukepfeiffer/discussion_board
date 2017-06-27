@@ -25,18 +25,6 @@ Feature: Admins
     Then I should be on the "/admins/overview" page
     And I should see "title"
 
-  Scenario: Admin creates post
-    Given 1 admin
-    And 1 course
-    And I sign in as an admin
-    When I follow "Create Post"
-    And I fill in "Title" with "title"
-    And I fill in "post_embed_url" with "http://google.com"
-    And I fill in "Description" with "some description"
-    And I press "Create Post"
-    Then I should see "title"
-    And I should see "description"
-
   Scenario: Admin creates course
     Given 1 admin
     And I sign in as an admin

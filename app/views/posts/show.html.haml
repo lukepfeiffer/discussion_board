@@ -36,14 +36,13 @@
         %p.comment-actions{class: current_user.present? ? 'active' : 'inactive'}
           %span.reply-button{data: {id: comment.id}} Reply
           &bull;
-          %span.like-buttons{class:"like-buttons#{comment.id}"}
+          %span.like-buttons{class: "like-buttons#{comment.id}"}
             %i.fa.fa-thumbs-o-up{data: {id: comment.id, vote_count: comment.vote_count(comment.votes), url: like_path(comment_id: comment.id)}}
             %i.fa.fa-thumbs-o-down{data: {id: comment.id, vote_count: comment.vote_count(comment.votes), url: dislike_path(comment_id: comment.id)}}
             %span{class: "vote-count#{comment.id}", data: {id: comment.id}}= "+" + comment.vote_count(comment.votes).to_s
 
-        // check if a comment has reply commments
         - if comment.comments.first.present?
-          %p.replies{class:"replies#{comment.id}", data:{id: comment.id, url: replies_path(comment_id: comment.id)}} View replies (#{comment.comments.count})
+          %p.replies{class: "replies#{comment.id}", data:{id: comment.id, url: replies_path(comment_id: comment.id)}} View replies (#{comment.comments.count})
 
           %p.hidden.hide-replies{class: "hide-replies#{comment.id}", data:{id: comment.id, url: hide_replies_path(commend_id: comment.id)}} Hide replies (#{comment.comments.count})
 
@@ -60,4 +59,4 @@
       // Enable deletion of comments by certain people
       - if  current_user.present? && (current_user.id == comment.user.id || current_user.is_admin?)
         %p.actions
-          = link_to 'Delete', comment_path(comment.id, post_id: post.id), method: :delete, class: "delete"
+          = link_to 'Delete', comment_path(comment.id, post_id: post.id), method: :delete, class: "delete", id: 'comment_delete'
