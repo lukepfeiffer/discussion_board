@@ -5,22 +5,27 @@ class PostsController < ApplicationController
   expose :comment do
     Comment.new
   end
+
   expose :comments do
     post.comments.where(comment_id: nil).order("created_at DESC")
   end
+
   expose :courses do
     Course.all
   end
+
   expose :posts do
     if params[:course_code].present?
-      course = Course.find_by(course_code: params[:course_code])
-      Post.where(course_id: course.id).paginate(page: params[:page], per_page: 10).order("publish_date DESC")
+      posts = Post.for_course(params[:course_code])
     elsif params[:search].present?
-      Post.fuzzy_search(params[:search]).paginate(page: params[:page], per_page: 10).order("publish_date DESC")
+      posts = Post.fuzzy_search(params[:search])
     else
-      Post.all.paginate(page: params[:page], per_page: 10).order("publish_date DESC")
+      posts = Post.all
     end
+
+    posts.paginate(page: params[:page], per_page: 10).order("publish_date DESC")
   end
+
   expose :reply_comment do
     Comment.new
   end
