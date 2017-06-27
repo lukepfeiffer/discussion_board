@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
 
   def create
     if course.save
-      redirect_to overview_admins_path
+      redirect_to overview_admins_path(message: "course_created")
     else
       redirect_to new_courses_path
     end

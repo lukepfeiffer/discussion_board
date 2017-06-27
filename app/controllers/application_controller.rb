@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
       elsif params[:message] == 'successful_sign_in'
         @message = 'Successful sign in'
         @green_message = true
+      elsif params[:message] == 'course_created'
+        @message = 'The course was successfully created!'
+        @green_message = true
       elsif params[:message] == 'user_not_found'
         @message = 'The confirmation link did not match any user'
         @green_message = false
