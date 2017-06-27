@@ -23,4 +23,3 @@ Feature: Super users
     When I follow "All Actions"
     And I follow "Remove Admin"
     Then I should not see "Remove Admin"
-
