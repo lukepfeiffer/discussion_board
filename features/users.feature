@@ -25,3 +25,11 @@ Feature: User
     And I sign in as a user
     When I follow "Sign Out"
     Then I should see "Sign In"
+
+  Scenario: User attempts to visit unauthorized page
+    Given 1 user
+    And I sign in as a user
+    And I go to the "/admins/overview" page
+    Then I should be on the "/" page
+    And I should see "You do not have authorization for that action"
+

@@ -20,6 +20,9 @@ class ApplicationController < ActionController::Base
       elsif params[:message] == 'user_not_found'
         @message = 'The confirmation link did not match any user'
         @green_message = false
+      elsif params[:message] == 'authority_issue'
+        @message = 'You do not have authorization for that action'
+        @green_message = false
       elsif params[:message] == 'invalid_login'
         @message = 'Email or password incorrect'
         @green_message = false

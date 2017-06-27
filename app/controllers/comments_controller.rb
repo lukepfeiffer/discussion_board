@@ -66,7 +66,7 @@ class CommentsController < ApplicationController
 
   def authenticate_user
     if current_user.nil?
-      redirect_to root_path
+      redirect_to root_path(message: 'authority_issue')
     end
   end
 

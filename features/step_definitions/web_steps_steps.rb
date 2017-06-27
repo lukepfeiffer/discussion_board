@@ -22,6 +22,10 @@ When /^I sign in as an admin$/ do
   click_button 'Sign In'
 end
 
+When /^I go to the "(.+)" page$/ do |path|
+  visit path
+end
+
 When /^I follow "(.+)"$/ do |link_name|
   click_link link_name
 end

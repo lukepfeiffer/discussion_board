@@ -7,17 +7,16 @@ class AdminsController < ApplicationController
 
   expose :posts do
     if params[:user_id].present?
-      current_user.posts.order("publish_date DESC")
+      posts = current_user.posts.order("publish_date DESC")
     elsif params[:order].present?
-      Post.all.order("publish_date ASC")
+      posts = Post.all.order("publish_date ASC")
     elsif params[:published].present?
-      Post.all
-        .paginate(page: params[:page], per_page: 10)
-        .where('publish_date < ?', Date.today)
-        .order('created_at DESC')
+      posts = Post.published.order('created_at DESC')
     else
-      Post.all.order("publish_date DESC")
+      posts = Post.all.order("publish_date DESC")
     end
+
+    posts.paginate(page: params[:page], per_page: 10)
   end
 
   expose :courses do
@@ -39,7 +38,7 @@ class AdminsController < ApplicationController
 
   def authenticate_admin
     if current_user.nil? || !current_user.is_admin?
-      redirect_to root_path
+      redirect_to root_path(message: 'authority_issue')
     end
   end
 

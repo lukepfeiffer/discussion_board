@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
 
   def authenticate_admin
     if current_user.nil? || !current_user.is_admin?
-      redirect_to root_path
+      redirect_to root_path(message: 'authority_issue')
     end
   end
 

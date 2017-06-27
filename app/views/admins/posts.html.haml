@@ -1,9 +1,9 @@
 .admin-posts-container
   .filters
-    = link_to 'Normal', posts_admins_path, class: (params[:user_id].blank? && params[:order].blank? && params[:published].blank? ? 'success selected' : 'success')
-    = link_to 'My Posts', posts_admins_path(user_id: current_user.id), class: (params[:user_id].present? ? 'success selected' : 'success')
+    = link_to 'Recent', posts_admins_path, class: (params[:user_id].blank? && params[:order].blank? && params[:published].blank? ? 'success selected' : 'success')
     = link_to 'Oldest', posts_admins_path(order: 'oldest'), class: (params[:order].present? ? 'success selected' : 'success')
     = link_to 'Published', posts_admins_path(published: true), class: (params[:published].present? ? 'success selected' : 'success')
+    = link_to 'My Posts', posts_admins_path(user_id: current_user.id), class: (params[:user_id].present? ? 'success selected' : 'success')
   .cards
     - posts.each do |post|
       = link_to post_path(post.id) do
