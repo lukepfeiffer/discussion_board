@@ -41,12 +41,20 @@
     select{
       background-color: #fff;
     }
+
     select, input[type=text], input[type=password], input[type=date]{
-      width: 50%;
+      width: 100%;
       border-radius: 5px;
       padding: 0.8em;
       font-size: 16px;
       letter-spacing: 1.5px;
+    }
+
+    .inline-fields{
+      display: inline;
+      select, input[type=text], input[type=password], input[type=date]{
+        width: 40%;
+      }
     }
   }
 }

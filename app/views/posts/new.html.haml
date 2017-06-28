@@ -3,16 +3,22 @@
   = form_for post do |f|
     %fieldset
       %dl
-        %dt= f.label :title
-        %dd= f.text_field :title
-        %dt= f.label :image_url
-        %dd= f.text_field :image_url
-        %dt= f.label :course
-        %dd= f.select :course_id, options_for_select(courses.collect { |course| [course.course_code.titleize, course.id] }, 1), {}, class: 'form-control'
-        %dt= f.label :embedded_url
-        %dd= f.text_field :embed_url
-        %dt= f.label :publish_date
-        %dd= f.date_field :publish_date
+        = f.label :title
+        = f.text_field :title
+
+        %span.inline-fields
+          %dt= f.label :course
+          %dd= f.select :course_id, options_for_select(courses.collect { |course| [course.course_code.titleize, course.id] }, 1), {}, class: 'form-control'
+        %span.inline-fields
+          %dt= f.label :publish_date
+          %dd= f.date_field :publish_date
+
+        %span.inline-fields
+          %dt= f.label :image_url
+          %dd= f.text_field :image_url
+          %dt= f.label :embedded_url
+          %dd= f.text_field :embed_url
+
         %dt= f.label :description
         %dd= f.text_area :description
 

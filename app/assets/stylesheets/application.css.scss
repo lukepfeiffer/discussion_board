@@ -9,15 +9,16 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
-@import "bourbon";
-@import "home";
-@import "users";
-@import "neat";
-@import "base/base";
- *= require_tree .
- *= require_self
  */
+@import "bourbon";
+@import "contact";
+@import "comments";
+@import "form";
+@import "search_bar";
+@import "pagination";
+@import "posts";
+@import "tables";
+@import "cards";
 
 // Form styles
 
