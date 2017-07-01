@@ -1,75 +1,86 @@
 #admin-overview
-  .post-actions
-    %h2
-      Recent Posts
-      = link_to 'View All', posts_admins_path, class: 'success'
-    .cards
-      - recent_posts.each do |post|
-        = link_to post_path(post.id) do
-          .card
-            .card-image= image_tag post.image_url.present? ? post.image_url : 'placeholder.jpg'
-            .card-header
-              %span.title= post.title.truncate(30)
-              %span.italic= post.publish_date.strftime("%m/%d/%Y")
-            .card-copy
-              %span.description= post.description.truncate(100)
-              .actions
-                = link_to 'Edit', edit_post_path(post.id), class: 'edit'
-  .course-actions
-    %h2 All Courses
-    %table.tables
-      %thead
-        %tr
-          %th Name
-          %th Course Code
-          %th # of posts
-          %th Date Created
-          %th Actions
-      %tbody
-        - courses.each do |course|
-          %tr
-            %td= course.name
-            %td= course.course_code
-            %td= course.posts.count
-            %td= course.created_at.strftime("%m/%d/%Y");
-            %td
-              = link_to 'edit', edit_course_path(course.id), class: 'edit'
+  .panel.primary
+    .post-actions
+      .panel-header
+        %h1
+          Recent Posts
+          = link_to 'View All', posts_admins_path, class: 'success', id: 'view_all'
+      .panel-body
+        .cards
+          - recent_posts.each do |post|
+            = link_to post_path(post.id) do
+              .card
+                .card-image= image_tag post.image_url.present? ? post.image_url : 'placeholder.jpg'
+                .card-header
+                  %span.title= post.title.truncate(30)
+                  %span.italic= post.publish_date.strftime("%m/%d/%Y")
+                .card-copy
+                  %span.description= post.description.truncate(100)
+                  .actions
+                    = link_to 'Edit', edit_post_path(post.id), class: 'edit'
+  .panel.primary
+    .course-actions
+      .panel-header
+        %h1 All Courses
+      .panel-body
+        %table.tables
+          %thead
+            %tr
+              %th Name
+              %th Course Code
+              %th # of posts
+              %th Date Created
+              %th Actions
+          %tbody
+            - courses.each do |course|
+              %tr
+                %td= course.name
+                %td= course.course_code
+                %td= course.posts.count
+                %td= course.created_at.strftime("%m/%d/%Y");
+                %td
+                  = link_to 'edit', edit_course_path(course.id), class: 'edit'
 
   - if current_user.is_super_user?
-    .admin-list
-      %h2 All Admins
-      %table.tables
-        %thead
-          %tr
-            %th Username
-            %th Email
-            %th # of posts
-            %th Admin date
-            %th Actions
-
-        %tbody
-          - admins.each do |admin|
+    .panel.primary.admin-list
+      .panel-header
+        %h1 All Admins
+      .panel-body
+        %table.tables
+          %thead
             %tr
-              %td= admin.username
-              %td= admin.email
-              %td= admin.posts.count
-              %td= admin.updated_at.strftime("%m/%d/%Y");
-              %td
-                = link_to 'Remove Admin', remove_admin_users_path(user_id: admin.id), class: 'delete remove_admin', id: admin.username
-      %h2 All Users
-      %table.tables
-        %thead
-          %tr
-            %th Username
-            %th Email
-            %th Join date
-            %th Actions
+              %th Username
+              %th Email
+              %th # of posts
+              %th Admin date
+              %th Actions
 
-        %tbody
-          - users.each do |user|
+          %tbody
+            - admins.each do |admin|
+              %tr
+                %td= admin.username
+                %td= admin.email
+                %td= admin.posts.count
+                %td= admin.updated_at.strftime("%m/%d/%Y");
+                %td
+                  = link_to 'Remove Admin', remove_admin_users_path(user_id: admin.id), class: 'delete remove_admin', id: admin.username
+    .panel.primary
+      .panel-header
+        %h1 All Users
+      .panel-body
+        %table.tables
+          %thead
             %tr
-              %td= user.username
-              %td= user.email
-              %td= user.updated_at.strftime("%m/%d/%Y")
-              %td
-                = link_to 'Make Admin', make_admin_users_path(user_id: user.id), class: 'success make_admin', id: user.username
+              %th Username
+              %th Email
+              %th Join date
+              %th Actions
+
+          %tbody
+            - users.each do |user|
+              %tr
+                %td= user.username
+                %td= user.email
+                %td= user.updated_at.strftime("%m/%d/%Y")
+                %td
+                  = link_to 'Make Admin', make_admin_users_path(user_id: user.id), class: 'success make_admin', id: user.username

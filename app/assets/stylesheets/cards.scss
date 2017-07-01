@@ -34,7 +34,6 @@
   $warning-color: #FF9308;
   $success-color: #55acee;
   $primary-color: #2ecc71;
-  $body-size: 60%;
   $text-gray: #9b9b9b;
 
   background-color: $card-background;
@@ -42,17 +41,17 @@
   border-radius: $base-border-radius;
   box-shadow: 0 2px 4px darken($base-background-color, 10%);
   cursor: pointer;
-  flex-basis: 15em;
+  flex-basis: 20em;
   flex-grow: 1;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
   transition: all 0.2s ease-in-out;
-  width: 33%;
+  width: 60%;
 
   .card-image {
     background-color: $card-image-hover-color;
-    height: 150px;
-    max-height: 150px;
+    height: 200px;
+    max-height: 200px;
     overflow: hidden;
 
     img {

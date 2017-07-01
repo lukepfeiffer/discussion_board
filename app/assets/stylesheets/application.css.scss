@@ -63,7 +63,7 @@ h1{
   $warning-color: #FF9308;
   $success-color: #55acee;
   $primary-color: #2ecc71;
-  $body-size: 60%;
+  $body-size: 75%;
   $text-gray: #9b9b9b;
 
   height: 100%;
@@ -112,6 +112,20 @@ h1{
       color: darken($danger-color, 5%);
       background-color: darken(#fff, 1%);
     }
+  }
+
+  #view_all{
+    color: #22425b;
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+
+    &:hover{
+      background-color: #d9edf7;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
   }
 
   .bold{
