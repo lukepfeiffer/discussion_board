@@ -17,14 +17,25 @@
   dt{
     margin-top: 1em;
   }
-  @media only screen and (max-device-width: 768px) {
-    input[type=submit]{
-      width: 25%;
-    }
+
+  .formatted_content{
+    width: 100%;
+    height: 12em;
+    font-size: 16px;
+    letter-spacing: 1.5px;
   }
 
-  select{
-    background-color: #fff;
+  input[type=submit]{
+    // width: 12.5%;
+    padding: 0.5em;
+    font-size: 16px;
+    margin-top: 1em;
+  }
+
+  @media only screen and (max-device-width: 768px) {
+    input[type=submit]{
+      // width: 25%;
+    }
   }
 
   select, input[type=text], input[type=password], input[type=date]{
@@ -36,15 +47,36 @@
   }
 
   select{
+    background-color: #fff;
     padding: 0.9em;
   }
 
   .inline{
+    select, input[type=text], input[type=password], input[type=date]{
+      width: 28.5vw;
+    }
+
     .inline-fields{
       display: inline-block;
 
       label{
         display: block;
+      }
+    }
+  }
+
+  @media only screen and (max-device-width: 1430px) {
+    .inline{
+      select, input[type=text], input[type=password], input[type=date]{
+        width: 58vw;
+      }
+    }
+  }
+
+  @media only screen and (max-device-width: 768px) {
+    .inline{
+      select, input[type=text], input[type=password], input[type=date]{
+        width: 77vw;
       }
     }
   }
