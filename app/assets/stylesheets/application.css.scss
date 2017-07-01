@@ -11,6 +11,7 @@
  * file per style scope.
  */
 @import "bourbon";
+@import "base/base";
 @import "contact";
 @import "comments";
 @import "form";
@@ -21,6 +22,10 @@
 @import "cards";
 
 // Form styles
+
+h1{
+  font-size: 30px;
+}
 
 .message{
   padding: 15px;
