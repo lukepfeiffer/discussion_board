@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require admin_actions
+//= require trix
 //= require_tree .

@@ -231,6 +231,8 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.6)
+    trix (0.10.1)
+      rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.4)
@@ -275,6 +277,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selenium-webdriver
   textacular (~> 3.0)
+  trix
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   will_paginate

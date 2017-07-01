@@ -5,9 +5,9 @@
       %dl
         %dt= f.label :name
         %dd= f.text_field :name
-        %dt= f.label :description
-        %dd= f.text_area :description
         %dt= f.label :course_code
         %dd= f.text_field :course_code
+        %dt= f.label :description
+        %dd= f.trix_editor :description
     %fieldset.actions
       = f.submit 'Create Course'

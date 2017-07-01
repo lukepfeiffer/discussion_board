@@ -21,7 +21,7 @@
         = f.text_field :embed_url
 
     %dt= f.label :description
-    %dd= f.text_area :description
+    %dd= f.trix_editor :description
 
     %fieldset.actions
       = f.submit 'Create Post'
