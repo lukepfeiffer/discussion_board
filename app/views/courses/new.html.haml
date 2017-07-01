@@ -1,13 +1,16 @@
-%h1 Create Course
-.form
-  = form_for course do |f|
-    %fieldset
-      %dl
-        %dt= f.label :name
-        %dd= f.text_field :name
-        %dt= f.label :course_code
-        %dd= f.text_field :course_code
-        %dt= f.label :description
-        %dd= f.trix_editor :description
-    %fieldset.actions
-      = f.submit 'Create Course'
+.panel.primary
+  .panel-header
+    %h1 Create Course
+  .panel-body
+    .form
+      = form_for course do |f|
+        %fieldset
+          %dl
+            %dt= f.label :name
+            %dd= f.text_field :name
+            %dt= f.label :course_code
+            %dd= f.text_field :course_code
+            %dt= f.label :description
+            %dd= f.trix_editor :description
+        %fieldset.actions
+          = f.submit 'Create Course'
