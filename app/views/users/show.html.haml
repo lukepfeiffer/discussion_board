@@ -1,0 +1,13 @@
+.panel.default
+  .panel-header
+    %h1= user.username
+    = link_to edit_user_path(user.id) do
+      %button.edit-panel Edit
+  .panel-body
+    %ul
+      %li
+        %b Username:
+        = user.username
+      %li
+        %b Email:
+        = user.email

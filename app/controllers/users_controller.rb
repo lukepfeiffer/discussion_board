@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     User.new
   end
 
+  expose :user
+
   def create
     user = User.new(user_params)
     if user.save
@@ -33,6 +35,22 @@ class UsersController < ApplicationController
     user = User.find(params[:user_id])
     user.update(is_admin: false)
     redirect_to overview_admins_path
+  end
+
+  def update
+    user = User.find(params[:id])
+
+
+    user.update(user_params)
+
+    if user.save
+      redirect_to user_path(user.id)
+    else
+      redirect_to edit_user_path(user.id)
+    end
+  end
+
+  def show
   end
 
   def user_params

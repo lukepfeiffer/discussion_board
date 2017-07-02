@@ -24,8 +24,9 @@
 
     - if current_user.present?
       .user-info
-        Signed in as
-        = current_user.username
+        %span.content
+          = current_user.username
+          = link_to 'View', user_path(current_user), class: 'edit-user'
       - if current_user.is_admin?
         .admin-actions
           = link_to 'Create Post', new_post_path, class: 'create'

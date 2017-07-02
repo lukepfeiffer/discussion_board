@@ -196,7 +196,20 @@ h1{
       }
     }
   }
+
   .user-info{
+    font-size: 20px;
+    background-color: #fafafb;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #dadada;
+    text-align: left;
+    width: 20%;
+
+    .edit-user{
+      &:hover{
+        cursor: pointer;
+      }
+    }
   }
 
   .navigation{

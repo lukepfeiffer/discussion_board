@@ -1,0 +1,14 @@
+.panel.primary
+  .panel-header
+    %h1= "Edit #{user.username}"
+  .panel-body
+    .form
+      = form_for user do |f|
+        %fieldset
+          %dl
+            %dt= f.label :username
+            %dd= f.text_field :username
+            %dt= f.label :email
+            %dd= f.text_field :email
+        %fieldset.actions
+          = f.submit "Edit User"
