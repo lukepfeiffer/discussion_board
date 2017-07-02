@@ -2,13 +2,14 @@
   .panel-header
     %h1= course.name
     = link_to edit_course_path(course.id) do
-      %button.edit-panel Edit
+      - if current_user.present? && current_user.is_admin?
+        %button.edit-panel Edit
   .panel-body
     %ul
       %li
         %b Course code:
         = course.course_code
-      %li.bottom= course.description
+      %li.bottom= course.description.html_safe
 
     %h2 Recent posts
     .cards

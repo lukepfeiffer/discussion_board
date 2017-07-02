@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
       if params[:message] == 'confirmed_user'
         @message = 'User successfully registered. Please sign in'
         @green_message = true
+      elsif params[:message] == 'course_update'
+        @message = "Course successfully updated!"
+        @green_message = true
       elsif params[:message] == 'confirm_registry'
         @message = 'User successfully created. We sent an email to verify your account.'
         @green_message = true

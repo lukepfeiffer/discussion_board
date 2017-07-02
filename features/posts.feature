@@ -20,3 +20,16 @@ Feature: Post
     Then I should not see "title"
     And I should not see "description"
     And I should not see "www.google.com"
+
+  Scenario: Admin edits post
+    Given 1 admin
+    And 1 course
+    And that course has 1 post
+    And that post belongs to that user
+    And I sign in as an admin
+    And I follow "Edit"
+    When I fill in "post_title" with "FooBar"
+    And I fill in "post_embed_url" with "Baz"
+    And I press "Edit Post"
+    Then I should see "FooBar"
+    And I should see "Baz"

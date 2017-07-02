@@ -24,12 +24,3 @@ Feature: Admins
     When I follow "All Actions"
     Then I should be on the "/admins/overview" page
     And I should see "title"
-
-  Scenario: Admin creates course
-    Given 1 admin
-    And I sign in as an admin
-    When I follow "Create Course"
-    And I fill in "Name" with "Foo"
-    And I fill in "course_course_code" with "Baz"
-    And I press "Create Course"
-    Then I should see "The course was successfully created!"

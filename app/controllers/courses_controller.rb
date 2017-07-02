@@ -16,6 +16,20 @@ class CoursesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    course = Course.find(params[:id])
+    course.update(course_params)
+
+    if course.save
+      redirect_to course_path(course.id, message: "course_update")
+    else
+      redirect_to new_course_path
+    end
+  end
+
   private
 
   def authenticate_admin
