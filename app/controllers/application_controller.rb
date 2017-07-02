@@ -35,4 +35,17 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def authenticate_admin
+    if current_user.nil? || !current_user.is_admin?
+      redirect_to root_path(message: 'authority_issue')
+    end
+  end
+
+  def authenticate_user
+    if current_user.nil?
+      redirect_to root_path(message: 'authority_issue')
+    end
+  end
+
 end

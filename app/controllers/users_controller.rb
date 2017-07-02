@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :user_authorize, only: [:show, :edit]
+  before_action :authenticate_admin, only: [:make_admin, :remove_admin]
   expose :new_user do
     User.new
   end
@@ -51,6 +53,14 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  private
+
+  def user_authorize
+    unless current_user == user || current_user.is_admin?
+      redirect_to root_path
+    end
   end
 
   def user_params

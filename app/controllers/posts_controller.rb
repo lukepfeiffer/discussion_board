@@ -83,12 +83,6 @@ class PostsController < ApplicationController
 
   private
 
-  def authenticate_admin
-    if current_user.nil? || !current_user.is_admin?
-      redirect_to root_path(message: 'authority_issue')
-    end
-  end
-
   def post_params
     params.require(:post).permit(
       :title,

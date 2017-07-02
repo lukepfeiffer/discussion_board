@@ -64,12 +64,6 @@ class CommentsController < ApplicationController
 
   private
 
-  def authenticate_user
-    if current_user.nil?
-      redirect_to root_path(message: 'authority_issue')
-    end
-  end
-
   def get_vote(comment)
     @vote = comment.votes.find_by_user_id(current_user.id)
     unless @vote
