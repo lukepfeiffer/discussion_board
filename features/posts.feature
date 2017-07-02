@@ -6,11 +6,9 @@ Feature: Post
     When I follow "Create Post"
     And I fill in "Title" with "title"
     And I fill in "post[embed_url]" with "www.google.com"
-    And I fill in "Description" with "Some description"
     And I press "Create Post"
     Then I should see "title"
     And I should see "www.google.com"
-    And I should see "Some description"
 
   Scenario: Admin deletes post
     Given 1 admin

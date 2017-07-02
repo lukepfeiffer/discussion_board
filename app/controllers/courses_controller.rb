@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
     if course.save
       redirect_to overview_admins_path(message: "course_created")
     else
-      redirect_to new_courses_path
+      redirect_to new_course_path
     end
   end
 

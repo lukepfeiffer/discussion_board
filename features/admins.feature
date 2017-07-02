@@ -30,7 +30,6 @@ Feature: Admins
     And I sign in as an admin
     When I follow "Create Course"
     And I fill in "Name" with "Foo"
-    And I fill in "Description" with "Bar"
     And I fill in "course_course_code" with "Baz"
     And I press "Create Course"
     Then I should see "The course was successfully created!"
