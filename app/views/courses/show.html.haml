@@ -1,0 +1,25 @@
+.panel.default
+  .panel-header
+    %h1= course.name
+    = link_to edit_course_path(course.id) do
+      %button.edit-panel Edit
+  .panel-body
+    %ul
+      %li
+        %b Course code:
+        = course.course_code
+      %li.bottom= course.description
+
+    %h2 Recent posts
+    .cards
+      - course.posts.last(3).each do |post|
+        = link_to post_path(post.id) do
+          .card
+            .card-image= image_tag post.image_url.present? ? post.image_url : 'placeholder.jpg'
+            .card-header
+              %span.title= post.title.truncate(30)
+              %span.italic= post.publish_date.strftime("%m/%d/%Y")
+            .card-copy
+              %span.description= post.description.truncate(100)
+              .actions
+                = link_to 'Edit', edit_post_path(post.id), class: 'edit'

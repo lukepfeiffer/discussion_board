@@ -13,6 +13,9 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def authenticate_admin

@@ -1,5 +1,5 @@
 Feature: Admins
- Scenario: Admin views recent posts
+  Scenario: Admin views recent posts
     Given 1 admin
     And 1 course
     And that admin has 1 post

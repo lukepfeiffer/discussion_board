@@ -42,6 +42,10 @@ And /^I am on a show post page$/ do
   visit post_path(Post.last.id)
 end
 
+And /^I visit the course show page$/ do
+  visit course_path(Course.last.id)
+end
+
 And /^I am on the "(.+)" page$/ do |path|
   visit path
 end

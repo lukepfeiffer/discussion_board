@@ -39,6 +39,7 @@
                 %td= course.posts.count
                 %td= course.created_at.strftime("%m/%d/%Y");
                 %td
+                  = link_to 'view', course_path(course.id), class: 'success'
                   = link_to 'edit', edit_course_path(course.id), class: 'edit'
 
   - if current_user.is_super_user?

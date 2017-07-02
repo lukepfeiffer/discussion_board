@@ -9,7 +9,7 @@
         %span.date= post.publish_date.strftime("%B %-d, %Y" )
       = link_to posts_path(course_code: post.course.course_code) do
         %p.course= post.course.course_code
-      %p.description= post.description
+      %p.description= post.description.html_safe
 
     - if current_user.present? && current_user.is_admin?
       .actions
