@@ -6,6 +6,10 @@ When /^I sign in as a user$/ do
   click_button 'Sign In'
 end
 
+Given /^I am on the root path$/ do
+  visit root_path
+end
+
 When /^I sign in as a super user$/ do
   # must have user in the database!!!
   visit sign_in_path

@@ -33,3 +33,11 @@ Feature: Post
     And I press "Edit Post"
     Then I should see "FooBar"
     And I should see "Baz"
+
+  Scenario: User searches for posts
+    Given I am on the root path
+    And 1 course
+    And that course has 2 posts
+    When I fill in "search" with "title"
+    And I press "Search"
+    Then I should see "title"
