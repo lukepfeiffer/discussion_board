@@ -9,6 +9,7 @@ Feature: User
     And I press "Sign Up"
     Then I should be on the "/" page
     And I should see "User successfully created. We sent an email to verify your account."
+    And the user should receive a confirmation email
 
   Scenario: User edits self
     Given 1 user

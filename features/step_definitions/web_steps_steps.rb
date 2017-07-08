@@ -14,6 +14,14 @@ When /^I sign in as a super user$/ do
   click_button 'Sign In'
 end
 
+Then "the user should receive a confirmation email" do
+  # this will get the first email, so we can check the email headers and body.
+  email = ActionMailer::Base.deliveries.first
+  expect(email.from).to eq(["webmaster.uf.ace@gmail.com"])
+  expect(email.to).to eq([User.last.email])
+  expect(email.subject).to include("Registration Confirmation")
+end
+
 When /^I sign in as an admin$/ do
   # must have admin in the database!!!
   visit sign_in_path
