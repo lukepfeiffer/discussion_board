@@ -6,7 +6,7 @@ Feature: Courses
     And I fill in "Name" with "Foo"
     And I fill in "course_course_code" with "Baz"
     And I press "Create Course"
-    Then I should see "The course was successfully created!"
+    Then I should see "Course was created!"
 
   Scenario: User views course show page
     Given 1 user
@@ -29,4 +29,4 @@ Feature: Courses
     And I press "Edit Course"
     Then I should see "FooBarBaz"
     And I should see "FOO2020"
-    And I should see "Course successfully updated!"
+    And I should see "Course was updated!"

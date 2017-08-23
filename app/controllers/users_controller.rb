@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       UserMailer.registration_confirmation(user).deliver_now
-      flash[:success] = "Account was created. Check you email to confirm your account."
+      flash[:success] = "User successfully created. We sent an email to verify your account."
       redirect_to root_path
     else
       flash[:danger] = "Account could not be created!"
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
   def user_authorize
     unless current_user.present? && (current_user == user || current_user.admin?)
-      flash[:danger] = "You do not have the authority for that page!"
+      flash[:danger] = "You do not have authorization for that action."
       redirect_to root_path
     end
   end
