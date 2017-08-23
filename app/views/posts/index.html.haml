@@ -7,7 +7,7 @@
           = image_tag post.image_url.present? ? post.image_url : 'placeholder.jpg'
           %i.fa.fa-play
       .description
-        = link_to post.description.truncate(500), post_path(post.id)
+        = link_to truncate(post.description, length: 500, escape: false), post_path(post.id)
       - if current_user.present? && current_user.is_admin?
         .actions
           = link_to 'Edit', edit_post_path(post.id), class: 'edit'
