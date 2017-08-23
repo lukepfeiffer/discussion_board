@@ -11,8 +11,10 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       UserMailer.registration_confirmation(user).deliver_now
-      redirect_to root_path(message: 'confirm_registry')
+      flash[:success] = "Account was created. Check you email to confirm your account"
+      redirect_to root_path
     else
+      flash[:danger] = "Account could not be created!"
       render 'pages/sign_in'
     end
   end
@@ -27,9 +29,11 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      redirect_to sign_in_path(message: 'confirmed_user')
+      flash[:success] = "Email was confirmed, sign in!"
+      redirect_to sign_in_path
     else
-      redirect_to root_path(message: 'user_not_found')
+      flash[:danger] = "Unable to find matching user..."
+      redirect_to root_path
     end
   end
 
@@ -42,13 +46,14 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
 
-
     user.update(user_params)
 
     if user.save
+      flash[:success] = "User updated successfully!"
       redirect_to user_path(user.id)
     else
-      redirect_to edit_user_path(user.id)
+      flash[:danger] = "User could not be updated..."
+      render :edit
     end
   end
 
@@ -59,7 +64,8 @@ class UsersController < ApplicationController
 
   def user_authorize
     unless current_user.present? && (current_user == user || current_user.admin?)
-      redirect_to root_path(message: 'authority_issue')
+      flash[:danger] = "You do not have the authority for that page!"
+      redirect_to root_path
     end
   end
 

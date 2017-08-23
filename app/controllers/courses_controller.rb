@@ -7,9 +7,11 @@ class CoursesController < ApplicationController
 
   def create
     if course.save
-      redirect_to overview_admins_path(message: "course_created")
+      flash[:success] = "Course was created!"
+      redirect_to overview_admins_path
     else
-      redirect_to new_course_path
+      flash[:danger] = "Course could not be created!"
+      render :new
     end
   end
 
@@ -24,9 +26,11 @@ class CoursesController < ApplicationController
     course.update(course_params)
 
     if course.save
-      redirect_to course_path(course.id, message: "course_update")
+      flash[:success] = "Course was updated!"
+      redirect_to course_path(course.id)
     else
-      redirect_to new_course_path
+      flash[:danger] = "Course could not be updated!"
+      render :edit
     end
   end
 

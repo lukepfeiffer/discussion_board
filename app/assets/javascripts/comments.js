@@ -36,7 +36,7 @@ $(document).ready(function() {
   });
 
   $('.comment').on('click', '.inactive', function(){
-    $('.page-content').before("<span class='message danger-alert' id='alert'> You need to sign in to like or reply! </span>");
+    $('.page-content').before("<div class='alert alert-danger' id='alert'> You need to sign in to like or reply! </span>");
     $('#main').animate({
       'scrollTop': $('#alert').offset().top
     }, 300);
