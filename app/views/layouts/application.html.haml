@@ -22,10 +22,9 @@
           %button.submit{type:"submit"} Search
 
     - if current_user.present?
-      .user-info
-        %span.content
-          = current_user.username
-          = link_to 'View', user_path(current_user), class: 'edit-user'
+      %span.content
+        = current_user.username
+        = link_to 'View', user_path(current_user), class: 'edit-user'
       - if current_user.is_admin?
         .admin-actions
           = link_to 'Create Post', new_post_path, class: 'create'
