@@ -1,21 +1,17 @@
 class UsersController < ApplicationController
   before_action :user_authorize, only: [:show, :edit]
   before_action :authenticate_admin, only: [:make_admin, :remove_admin]
-  expose :new_user do
-    User.new
-  end
-
   expose :user
 
   def create
     user = User.new(user_params)
     if user.save
       UserMailer.registration_confirmation(user).deliver_now
-      flash[:success] = "Account was created. Check you email to confirm your account"
+      flash[:success] = "Account was created. Check you email to confirm your account."
       redirect_to root_path
     else
       flash[:danger] = "Account could not be created!"
-      render 'pages/sign_in'
+      render :new
     end
   end
 
