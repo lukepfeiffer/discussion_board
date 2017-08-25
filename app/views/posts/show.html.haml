@@ -37,9 +37,9 @@
           %span.reply-button{data: {id: comment.id}} Reply
           &bull;
           %span.like-buttons{class: "like-buttons#{comment.id}"}
-            %i.fa.fa-thumbs-o-up{data: {id: comment.id, vote_count: comment.vote_count(comment.votes), url: like_path(comment_id: comment.id)}}
-            %i.fa.fa-thumbs-o-down{data: {id: comment.id, vote_count: comment.vote_count(comment.votes), url: dislike_path(comment_id: comment.id)}}
-            %span{class: "vote-count#{comment.id}", data: {id: comment.id}}= "+" + comment.vote_count(comment.votes).to_s
+            %i.fa.fa-thumbs-o-up{data: {id: comment.id, vote_count: comment.vote_count, url: like_path(comment_id: comment.id)}}
+            %i.fa.fa-thumbs-o-down{data: {id: comment.id, vote_count: comment.vote_count, url: dislike_path(comment_id: comment.id)}}
+            %span{class: "vote-count#{comment.id}", data: {id: comment.id}}= "+" + comment.vote_count.to_s
 
         - if comment.comments.first.present?
           %p.replies{class: "replies#{comment.id}", data:{id: comment.id, url: replies_path(comment_id: comment.id)}} View replies (#{comment.comments.count})

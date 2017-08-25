@@ -4,17 +4,9 @@ class Comment < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
-  def vote_count(votes)
-    value = 0
-
-    votes.each do |vote|
-      value += vote.value
-    end
-
-    if value < 0
-      return 0
-    else
-      return value
-    end
+  def vote_count
+    vote_values = votes.pluck(:value)
+    vote_count = vote_values.sum
+    vote_count < 0 ? 0 : vote_count
   end
 end
