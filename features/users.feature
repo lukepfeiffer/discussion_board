@@ -2,6 +2,7 @@ Feature: User
   Scenario: User Signs up
     Given I am on the home page
     And I follow "Sign In"
+    And I follow "Not registered? Create an account."
     When I fill in "sign_up_email" with "new@email.com"
     And I fill in "Username" with "username"
     And I fill in "sign_up_password" with "password"
@@ -48,4 +49,4 @@ Feature: User
     And I sign in as a user
     And I go to the "/admins/overview" page
     Then I should be on the "/" page
-    And I should see "You do not have authorization for that action"
+    And I should see "You do not have authorization for that action."

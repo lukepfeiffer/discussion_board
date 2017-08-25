@@ -1,23 +1,7 @@
-#sign_in
-  .sign_up
-    %h1 Sign up
-    .form
-      = form_for(new_user, builder: Formal::FormBuilder) do |f|
-        %fieldset
-          %dl
-            %dt= f.label :username
-            %dd= f.text_field :username, placeholder: 'Username'
-            %dt= f.label :email
-            %dd= f.text_field :email, id: 'sign_up_email', placeholder: 'email@example.com'
-            %dt= f.label :password
-            %dd= f.password_field :password, id: 'sign_up_password'
-            %dt= f.label :password_confirmation
-            %dd= f.password_field :password_confirmation, id: 'sign_up_confirmation'
-        %fieldset.actions
-          = f.submit "Sign Up"
-
-  .sign_in
+.sign.panel.primary
+  .panel-header
     %h1 Sign In
+  .panel-body
     .form
       = form_tag sign_in_path do
         %fieldset
@@ -28,3 +12,5 @@
             %dd= password_field_tag :password, nil, id: 'sign_in_password'
         %fieldset.actions
           = submit_tag "Sign In"
+
+    = link_to "Not registered? Create an account.", new_user_path

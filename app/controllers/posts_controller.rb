@@ -54,8 +54,10 @@ class PostsController < ApplicationController
     end
 
     if post.save
+      flash[:success] = 'Post successfully created!'
       redirect_to post_path(post)
     else
+      flash[:danger] = 'Post successfully was not saved!'
       render :new
     end
   end
@@ -70,14 +72,17 @@ class PostsController < ApplicationController
     post.update(post_params)
 
     if post.save
+      flash[:success] = 'Post successfully updated!'
       redirect_to post_path(post)
     else
-      redirect_to edit_posts_path(post.id)
+      flash[:danger] = 'Post was not updated!'
+      render :edit
     end
   end
 
   def destroy
     post.delete
+    flash[:success] = 'Post was deleted!'
     redirect_to root_path
   end
 
