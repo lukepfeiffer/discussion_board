@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
   before_action :authenticate_admin, only: [:create, :new, :edit]
 
   expose :course
+
   def new
   end
 
