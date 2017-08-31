@@ -7,11 +7,6 @@
   $search-bar-border: 1px solid $search-bar-border-color;
   $search-bar-background: lighten($search-bar-border-color, 10%);
 
-
-  input[type=search]{
-    letter-spacing: 1.5px;
-  }
-
   @media only screen and (min-device-width: 769px) {
     display: inline-block;
     float: right;
@@ -33,10 +28,10 @@
     }
 
     button[type=submit] {
-      padding: 0.53em 2em;
+      padding: 0.55em 2em;
       display: inline-block;
       position: relative;
-      top: 12px;
+      top: 13px;
       i{
         font-size: 1.4em;
         color: #9e9e9e;
