@@ -7,45 +7,11 @@
 %body#main
   %link{href: "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", rel: "stylesheet"}
   .main-content
-    %nav.navigation
-      .actions
-        %span.header-image= link_to((image_tag 'gatorace.png'), root_path)
-        = link_to 'Home', root_path
-        = link_to 'About', about_path
-        = link_to 'Contact', contact_path
-        - if current_user
-          = link_to 'Sign Out', sign_out_path, method: :delete
-        - else
-          = link_to 'Sign In', sign_in_path
-        %form.search-bar{role:"search", actions: '/posts', method: :get}
-          %input{type:"search", placeholder: "Search Lessons", name: 'search', id: 'search'}
-          %button.submit{type:"submit"} Search
-
-    .flash-messages
-      - flash.each do |key, value|
-        %div{ class: "alert alert-#{key}" }= value
-    - if current_user.present?
-      %span.content
-        = current_user.username
-        = link_to 'View', user_path(current_user), class: 'edit-user'
-      - if current_user.is_admin?
-        .admin-actions
-          = link_to 'Create Post', new_post_path, class: 'create'
-          = link_to 'Create Course', new_course_path, class: 'profile'
-          = link_to 'All Actions', overview_admins_path, class: 'view'
+    = render "layouts/nav"
+    = render "layouts/flash_messages"
+    = render "layouts/user_links"
 
     .page-content
       = yield
 
-    %nav.footer{role: 'contentinfo'}
-      .links
-        .social
-          %li
-            = link_to 'https://uf-ace.slack.com', target: '_blank' do
-              = image_tag 'slack.png'
-          %li
-            = link_to 'https://www.facebook.com/GatorACE/?fref=ts', target: '_blank' do
-              %i.fa.fa-facebook-official
-          %li
-            = link_to 'http://gatorace.org/', target: '_blank' do
-              %i.fa.fa-globe
+    = render "layouts/footer"

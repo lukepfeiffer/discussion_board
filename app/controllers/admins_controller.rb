@@ -6,17 +6,7 @@ class AdminsController < ApplicationController
   end
 
   expose :posts do
-    if params[:user_id].present?
-      posts = current_user.posts.order("publish_date DESC")
-    elsif params[:order].present?
-      posts = Post.all.order("publish_date ASC")
-    elsif params[:published].present?
-      posts = Post.published.order('created_at DESC')
-    else
-      posts = Post.all.order("publish_date DESC")
-    end
-
-    posts.paginate(page: params[:page], per_page: 10)
+    Post.sort(params)
   end
 
   expose :courses do

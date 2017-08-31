@@ -1,0 +1,9 @@
+- if current_user.present?
+  %span.content
+    = current_user.username
+    = link_to 'View', user_path(current_user), class: 'edit-user'
+  - if current_user.is_admin?
+    .admin-actions
+      = link_to 'Create Post', new_post_path, class: 'create'
+      = link_to 'Create Course', new_course_path, class: 'profile'
+      = link_to 'All Actions', overview_admins_path, class: 'view'

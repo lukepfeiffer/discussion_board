@@ -1,0 +1,14 @@
+%nav.navigation
+  .actions
+    %span.header-image= link_to((image_tag 'gatorace.png'), root_path)
+    = link_to 'Home', root_path
+    = link_to 'About', about_path
+    = link_to 'Contact', contact_path
+    - if current_user
+      = link_to 'Sign Out', sign_out_path, method: :delete
+    - else
+      = link_to 'Sign In', sign_in_path
+    %form.search-bar{role:"search", actions: '/posts', method: :get}
+      %input{type:"search", placeholder: "Search Lessons", name: 'search', id: 'search'}
+      %button.submit{type:"submit"} Search
+
