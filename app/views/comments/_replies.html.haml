@@ -11,6 +11,6 @@
             %i.fa.fa-thumbs-o-down{data: {id: comment.id, vote_count: comment.vote_count, url: dislike_path(comment_id: comment.id)}}
             %span{class: "vote-count#{comment.id}", data: {id: comment.id}}= "+ " + comment.vote_count.to_s
 
-      - if  current_user.present? && (current_user.id == comment.user.id || current_user.is_admin?)
+      - if CommentsHelper.authorized?(current_user, comment)
         %p.actions
           = link_to 'Delete', comment_path(comment.id, post_id: comment.post.id), method: :delete, class: "delete"
